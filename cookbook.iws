@@ -100,13 +100,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Recette.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Recette.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/Recette.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="10" selection-start="517" selection-end="517" vertical-scroll-proportion="0.6643952">
+            <state line="26" column="10" selection-start="517" selection-end="517" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dateField.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/modules/crud/app/views/tags/crud/dateField.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -120,28 +129,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="textField.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="textField.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/tags/crud/textField.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="24" selection-start="51" selection-end="51" vertical-scroll-proportion="-0.625">
+            <state line="11" column="38" selection-start="469" selection-end="469" vertical-scroll-proportion="0.28795812">
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CRUD.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../play-1.2.7/modules/crud/app/controllers/CRUD.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="60" column="0" selection-start="2030" selection-end="2030" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#2426#2458#0" expanded="false" />
-                <element signature="e#8022#8052#0" expanded="false" />
-                <element signature="e#9296#9326#0" expanded="false" />
-                <element signature="e#10957#10987#0" expanded="false" />
-                <element signature="e#11872#11885#0" expanded="false" />
-                <element signature="e#11947#11960#0" expanded="false" />
-                <element signature="e#13301#13333#0" expanded="false" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -168,15 +160,6 @@
         <entry file="file://$PROJECT_DIR$/conf/dependencies.yml">
           <provider selected="true" editor-type-id="text-editor">
             <state line="5" column="0" selection-start="73" selection-end="73" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/main.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="18" selection-start="1871" selection-end="1871" vertical-scroll-proportion="-7.5">
               <folding />
             </state>
           </provider>
@@ -258,6 +241,102 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="CookBook" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cookbook" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CookBook" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="crud" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cookbook" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CookBook" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="crud" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="crud" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cookbook" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CookBook" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="crud" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cookbook" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CookBook" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="crud" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -644,13 +723,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/main.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="52" selection-start="1557" selection-end="1574" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/Alpha.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="18" column="45" selection-start="417" selection-end="417" vertical-scroll-proportion="0.0">
@@ -700,21 +772,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../play-1.2.7/modules/crud/app/controllers/CRUD.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="0" selection-start="2030" selection-end="2030" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#2426#2458#0" expanded="false" />
-            <element signature="e#8022#8052#0" expanded="false" />
-            <element signature="e#9296#9326#0" expanded="false" />
-            <element signature="e#10957#10987#0" expanded="false" />
-            <element signature="e#11872#11885#0" expanded="false" />
-            <element signature="e#11947#11960#0" expanded="false" />
-            <element signature="e#13301#13333#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/Application/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="134" selection-start="372" selection-end="394" vertical-scroll-proportion="-5.0">
@@ -750,19 +807,35 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/tags/crud/textField.html">
+    <entry file="file://$PROJECT_DIR$/app/models/Recette.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="24" selection-start="51" selection-end="51" vertical-scroll-proportion="-0.625">
+        <state line="26" column="10" selection-start="517" selection-end="517" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/crud/app/views/tags/crud/dateField.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/Recette.java">
+    <entry file="file://$PROJECT_DIR$/../play-1.2.7/modules/crud/app/controllers/CRUD.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="10" selection-start="517" selection-end="517" vertical-scroll-proportion="0.6643952">
+        <state line="60" column="0" selection-start="2030" selection-end="2030" vertical-scroll-proportion="0.5452962">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/tags/crud/textField.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="38" selection-start="469" selection-end="469" vertical-scroll-proportion="0.28795812">
+          <folding />
         </state>
       </provider>
     </entry>
