@@ -1,0 +1,23 @@
+application.titre=CookBook
+
+# Recette
+titre=Titre
+adresse=Adresse
+lettre=Lettre
+
+ajouter.recette=Ajouter une recette
+recette.modifier=Modifier
+recette.supprimer=Supprimer
+recette.annuler=Annuler
+aucune.recette=Aucune recette
+recette.supprimer.success:La recette %1$s a été supprimée.
+recette.add=La recette %1$s a été ajoutée.
+recette.edit=La recette %1$s a été modifiée.
+
+rechercher.texte=Votre recherche...
+rechercher.btn=Rechercher
+recherche=Recherche
+
+tout=Tout
+
+crud.hasErrors=Merci de remplir tous les champs

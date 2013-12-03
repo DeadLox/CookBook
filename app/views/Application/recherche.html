@@ -1,0 +1,17 @@
+#{extends 'main.html' /}
+#{set title:'Recherche' /}
+
+#{if recettes.size() > 0 }
+    <ul class="listeRecettes">
+    #{list items:recettes,as:'recette'}
+        <li>
+            <a target="_blank" href="${recette.adresse}">${recette.hightlightRecherche(recherche).raw()}</a>
+            <a class="btn btn-info btn-xs" href="@{Application.modifier(recette.id)}"><span class="glyphicon glyphicon-pencil"></span> &{'recette.modifier'}</a>
+            <a class="btn btn-danger btn-xs" href="@{Application.supprimer(recette.id)}"><span class="glyphicon glyphicon-remove"></span> &{'recette.supprimer'}</a>
+        </li>
+    #{/list}
+    </ul>
+#{/if}
+#{else}
+     <div class="message">&{'aucune.recette'}</div>
+#{/else}

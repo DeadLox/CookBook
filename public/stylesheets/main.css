@@ -1,0 +1,42 @@
+.crudHelp {
+    display:none;
+}
+.crudField {
+    display:inline;
+}
+.formRecette {
+    margin:30px auto;
+}
+.message {
+    padding:20px;
+    font-weight:bold;
+    border-left: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-radius:0 0 5px 5px;
+}
+.listeRecettes {
+    padding:20px 20px 20px 80px;
+    border-left: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-radius:0 0 5px 5px;
+}
+.listeRecettes li {
+    margin:0;
+    padding:0;
+    font-size:20px;
+}
+.nav-tabs>li>a {
+    font-size:18px;
+    padding:5px 7px !important;
+    font-weight:bold;
+}
+.btn-ajouter {
+    margin-top:24px;
+}
+.recherche {
+    float:right;
+    width:400px;
+    margin-top:23px;
+}

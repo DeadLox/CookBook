@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>#{get 'title' /}</title>
+        <meta charset="${_response_encoding}">
+        <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/main.css'}">
+        <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/bootstrap.min.css'}">
+        <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/bootstrap-theme.min.css'}">
+        #{get 'moreStyles' /}
+        <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
+        <script src="@{'/public/javascripts/jquery-1.6.4.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+        <script src="@{'/public/javascripts/bootstrap.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+        #{get 'moreScripts' /}
+    </head>
+    <body>
+        <div class="container">
+            <div class="recherche">
+                #{form @Application.recherche(), method:'POST'}
+                    <div class="input-group">
+                          <span class="input-group-btn">
+                            <button class="btn btn-primary" type="button"><span class="glyphicon glyphicon-search"></span> &{'rechercher.btn'}</button>
+                          </span>
+                        <input type="text" class="form-control" name="recherche" placeholder="#{if recherche}${recherche}#{/if}#{else}&{'rechercher.texte'}#{/else}">
+                    </div>
+                #{/form}
+            </div>
+
+            <h1><a href="@{Application.index()}">&{'application.titre'}</a></h1>
+
+            #{if flash.error}
+            <p class="alert alert-danger">
+                &{flash.error}
+            </p>
+            #{/if}
+            #{if flash.success}
+            <p class="alert alert-success">
+                &{flash.success}
+            </p>
+            #{/if}
+
+            <div class="formRecette form-inline">
+                #{if object.id}
+                    <form action="@{Application.save(object.id)}" method="POST">
+                #{/if}
+                #{else}
+                    <form action="@{Application.ajouter()}" method="POST">
+                #{/else}
+                    #{crud.form /}
+                    #{if object.id}
+                        <button class="btn btn-warning btn-ajouter" type="submit" name="_save"><span class="glyphicon glyphicon-pencil"></span> &{'recette.modifier'}</button>
+                        <a href="@{Application.index()}" class="btn btn-default btn-ajouter"><span class="glyphicon glyphicon-chevron-left"></span> &{'recette.annuler'}</a>
+                    #{/if}
+                    #{else}
+                        <button class="btn btn-primary btn-ajouter" type="submit" name="_save"><span class="glyphicon glyphicon-plus"></span> &{'ajouter.recette'}</button>
+                    #{/else}
+                </form>
+            </div>
+
+            <ul class="nav nav-tabs">
+                <li #{if all}class="active"#{/if}><a href="@{Application.all()}">&{'tout'} <span class="label label-info">${models.Recette.count()}</span></a></li>
+                #{list items:alphas, as:'alpha'}
+                    #{set nbRecette=alpha.getNbRecette() /}
+                    #{if alpha.equals(selected) && !recherche}
+                        <li class="active">
+                            <a href="@{Application.lettre(alpha)}">${alpha}
+                                #{if nbRecette > 0}
+                                <span class="label label-info">${nbRecette}</span>
+                                #{/if}
+                            </a>
+                        </li>
+                    #{/if}
+                    #{else}
+                        <li>
+                            <a href="@{Application.lettre(alpha)}">${alpha}
+                                #{if nbRecette > 0}
+                                <span class="label label-info">${nbRecette}</span>
+                                #{/if}
+                            </a>
+                        </li>
+                    #{/else}
+                #{/list}
+                #{if recherche}
+                    <li class="active"><a href="">&{'recherche'} <span class="label label-info">${recettes.size()}</span></a></li>
+                #{/if}
+            </ul>
+            #{doLayout /}
+        </div>
+    </body>
+</html>
