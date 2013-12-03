@@ -22,11 +22,9 @@ public class Recette extends Model {
     public String adresse;
     @Required
     public Alpha lettre;
-    @CRUD.Hidden
-    public Date date;
 
     public Recette(){
-        this.date = new Date();
+        //this.date = new Date();
     }
 
     public String toString(){
