@@ -11,7 +11,7 @@
     <file path="/main.html" changelist="cccbbf79-9186-41cf-bcf4-b14e46134ab1" time="1385992550333" ignored="false" />
     <file path="/Alpha.java" changelist="cccbbf79-9186-41cf-bcf4-b14e46134ab1" time="1385987045502" ignored="false" />
     <file path="/Application.java" changelist="cccbbf79-9186-41cf-bcf4-b14e46134ab1" time="1385993765428" ignored="false" />
-    <file path="/application.conf" changelist="cccbbf79-9186-41cf-bcf4-b14e46134ab1" time="1385904956623" ignored="false" />
+    <file path="/application.conf" changelist="cccbbf79-9186-41cf-bcf4-b14e46134ab1" time="1386104254789" ignored="false" />
     <file path="/routes" changelist="cccbbf79-9186-41cf-bcf4-b14e46134ab1" time="1385990487482" ignored="false" />
     <file path="/dependencies.yml" changelist="cccbbf79-9186-41cf-bcf4-b14e46134ab1" time="1385906422973" ignored="false" />
     <file path="/Recettes.java" changelist="cccbbf79-9186-41cf-bcf4-b14e46134ab1" time="1385907226824" ignored="false" />
@@ -123,7 +123,7 @@
       <file leaf-file-name="application.conf" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/conf/application.conf">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="65" column="2" selection-start="2113" selection-end="2113" vertical-scroll-proportion="0.2810903">
+            <state line="122" column="20" selection-start="3883" selection-end="3883" vertical-scroll-proportion="0.7410562">
               <folding />
             </state>
           </provider>
@@ -822,7 +822,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/conf/application.conf">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="2" selection-start="2113" selection-end="2113" vertical-scroll-proportion="0.2810903">
+        <state line="122" column="20" selection-start="3883" selection-end="3883" vertical-scroll-proportion="0.7410562">
           <folding />
         </state>
       </provider>
