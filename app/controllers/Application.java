@@ -109,7 +109,6 @@ public class Application extends Controller {
         if (validation.hasErrors()) {
             flash.put("error", play.i18n.Messages.get("crud.hasErrors"));
         }
-        object.date = new Date();
         object._save();
         flash.success(play.i18n.Messages.get("recette.edit", type.modelName));
         index();
