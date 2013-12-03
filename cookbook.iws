@@ -19,7 +19,7 @@
     <file path="/main.css" changelist="cccbbf79-9186-41cf-bcf4-b14e46134ab1" time="1385991048761" ignored="false" />
     <file path="/messages" changelist="cccbbf79-9186-41cf-bcf4-b14e46134ab1" time="1385992560127" ignored="false" />
     <file path="/checkField.html" changelist="cccbbf79-9186-41cf-bcf4-b14e46134ab1" time="1385918519101" ignored="false" />
-    <file path="/textField.html" changelist="cccbbf79-9186-41cf-bcf4-b14e46134ab1" time="1386103354537" ignored="false" />
+    <file path="/textField.html" changelist="cccbbf79-9186-41cf-bcf4-b14e46134ab1" time="1386104879448" ignored="false" />
     <file path="/enumField.html" changelist="cccbbf79-9186-41cf-bcf4-b14e46134ab1" time="1386103416606" ignored="false" />
     <file path="/recherche.html" changelist="cccbbf79-9186-41cf-bcf4-b14e46134ab1" time="1385992588221" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -100,15 +100,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/stylesheets/main.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="16" selection-start="581" selection-end="581" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Recette.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/Recette.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -120,10 +111,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="application.conf" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="application.conf" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/conf/application.conf">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="122" column="20" selection-start="3883" selection-end="3883" vertical-scroll-proportion="0.7410562">
+            <state line="108" column="31" selection-start="3395" selection-end="3395" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="textField.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/tags/crud/textField.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1" column="24" selection-start="51" selection-end="51" vertical-scroll-proportion="0.027272727">
               <folding />
             </state>
           </provider>
@@ -132,7 +132,7 @@
       <file leaf-file-name="CRUD.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../play-1.2.7/modules/crud/app/controllers/CRUD.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="60" column="51" selection-start="2030" selection-end="2030" vertical-scroll-proportion="0.0">
+            <state line="60" column="0" selection-start="2030" selection-end="2030" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -161,7 +161,7 @@
       <file leaf-file-name="dependencies.yml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/conf/dependencies.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="25" selection-start="73" selection-end="73" vertical-scroll-proportion="0.0">
+            <state line="5" column="0" selection-start="73" selection-end="73" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -170,7 +170,7 @@
       <file leaf-file-name="main.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/main.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="77" selection-start="1871" selection-end="1871" vertical-scroll-proportion="-7.5">
+            <state line="39" column="18" selection-start="1871" selection-end="1871" vertical-scroll-proportion="-7.5">
               <folding />
             </state>
           </provider>
@@ -186,7 +186,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/../modules/crud/app/views/tags/crud/checkField.html" />
         <option value="$PROJECT_DIR$/../modules/crud/app/views/tags/crud/enumField.html" />
         <option value="$PROJECT_DIR$/../modules/crud/app/views/tags/crud/textField.html" />
         <option value="$PROJECT_DIR$/app/models/Alpha.java" />
@@ -202,6 +201,7 @@
         <option value="$PROJECT_DIR$/modules/crud/app/views/tags/crud/textField.html" />
         <option value="$PROJECT_DIR$/modules/crud/app/views/tags/crud/enumField.html" />
         <option value="$PROJECT_DIR$/conf/application.conf" />
+        <option value="$PROJECT_DIR$/app/views/tags/crud/textField.html" />
       </list>
     </option>
   </component>
@@ -405,6 +405,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="crud" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cookbook" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CookBook" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="Application" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -447,7 +469,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="GoToFile.includeJavaFiles" value="false" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.lastSelected" value="reference.projectsettings.compiler.javacompiler" />
@@ -467,6 +489,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/views" />
       <recent name="D:\Play\play-1.2.7\cookbook\app\views\Application" />
       <recent name="D:\Play\play-1.2.7\cookbook\public" />
       <recent name="D:\Play\play-1.2.7\cookbook\public\javascripts" />
@@ -711,13 +734,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/stylesheets/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="16" selection-start="581" selection-end="581" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/main.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="28" column="52" selection-start="1557" selection-end="1574" vertical-scroll-proportion="0.0">
@@ -778,14 +794,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/conf/dependencies.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="25" selection-start="73" selection-end="73" vertical-scroll-proportion="0.0">
+        <state line="5" column="0" selection-start="73" selection-end="73" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../play-1.2.7/modules/crud/app/controllers/CRUD.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="51" selection-start="2030" selection-end="2030" vertical-scroll-proportion="0.0">
+        <state line="60" column="0" selection-start="2030" selection-end="2030" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -801,7 +817,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/main.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="77" selection-start="1871" selection-end="1871" vertical-scroll-proportion="-7.5">
+        <state line="39" column="18" selection-start="1871" selection-end="1871" vertical-scroll-proportion="-7.5">
           <folding />
         </state>
       </provider>
@@ -822,7 +838,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/conf/application.conf">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="122" column="20" selection-start="3883" selection-end="3883" vertical-scroll-proportion="0.7410562">
+        <state line="108" column="31" selection-start="3395" selection-end="3395" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/tags/crud/textField.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="24" selection-start="51" selection-end="51" vertical-scroll-proportion="0.027272727">
           <folding />
         </state>
       </provider>
