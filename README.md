@@ -1,4 +1,0 @@
-CookBook
-========
-
-Gestion de recettes
