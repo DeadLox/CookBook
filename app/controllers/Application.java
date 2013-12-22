@@ -3,6 +3,7 @@ package controllers;
 import play.*;
 import play.data.binding.Binder;
 import play.db.Model;
+import play.db.jpa.GenericModel;
 import play.exceptions.TemplateNotFoundException;
 import play.i18n.Messages;
 import play.mvc.*;
@@ -11,6 +12,7 @@ import java.lang.reflect.Constructor;
 import java.util.*;
 
 import models.*;
+import util.PaginationUtil;
 
 public class Application extends Controller {
     private static Alpha selected = Alpha.A;
@@ -20,11 +22,13 @@ public class Application extends Controller {
         Recette object = new Recette();
 
         List<Alpha> alphas = Arrays.asList(Alpha.values());
-        List<Recette> recettes = Recette.find("byLettre", selected).fetch();
+        List<Recette> recettes = PaginationUtil.getPagination(params, selected);
+        long total = PaginationUtil.getTotalPagination(params, selected);
 
         renderArgs.put("alphas", alphas);
         renderArgs.put("selected", selected);
         renderArgs.put("recettes", recettes);
+        renderArgs.put("total", total);
         renderArgs.put("type", type);
         renderArgs.put("object", object);
         render();
@@ -34,12 +38,14 @@ public class Application extends Controller {
         Recette object = new Recette();
 
         List<Alpha> alphas = Arrays.asList(Alpha.values());
-        List<Recette> recettes = Recette.findAll();
+        List<Recette> recettes = PaginationUtil.getPaginationAll(params);
+        long total = Recette.count();
 
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("alphas", alphas);
         map.put("selected", null);
         map.put("recettes", recettes);
+        map.put("total", total);
         map.put("type", type);
         map.put("object", object);
         map.put("all", true);
@@ -109,6 +115,7 @@ public class Application extends Controller {
         if (validation.hasErrors()) {
             flash.put("error", play.i18n.Messages.get("crud.hasErrors"));
         }
+        object.date = new Date();
         object._save();
         flash.success(play.i18n.Messages.get("recette.edit", type.modelName));
         index();

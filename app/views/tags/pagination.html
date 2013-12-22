@@ -1,0 +1,20 @@
+%{
+    pageSelected = util.PaginationUtil.getPage(params);
+    nbPage = Math.ceil(_total / _maxPerPage);
+/}%
+#{if nbPage > 1}
+    <div class="pagination">
+        #{select name:'max', items:util.PaginationUtil.listMaxPerPage, class:'form-control', value:util.PaginationUtil.getMaxPerPage(params)/}
+        <ul class="pagination">
+            #{if pageSelected > 1}
+                <li><a href="?page=${pageSelected-1}">&{'precedent'}</a></li>
+            #{/if}
+            #{list items:1..nbPage, as:'page'}
+                <li class="#{if pageSelected == page}active#{/if}"><a href="?page=${page}">${page}</a></li>
+            #{/list}
+            #{if pageSelected < nbPage}
+                <li><a href="?page=${pageSelected+1}">&{'suivant'}</a></li>
+            #{/if}
+        </ul>
+    </div>
+#{/if}

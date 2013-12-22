@@ -1,7 +1,0 @@
-# Ignorer les fichiers de IntelliJ
-*.ipr
-*.iml
-*.iws
-
-# Dossier et fichiers inutiles
-tmp

@@ -18,6 +18,9 @@ rechercher.texte=Votre recherche...
 rechercher.btn=Rechercher
 recherche=Recherche
 
+#Pagination
 tout=Tout
+precedent=Précédent
+suivant=Suivant
 
 crud.hasErrors=Merci de remplir tous les champs

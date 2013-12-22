@@ -46,7 +46,7 @@
                 #{else}
                     <form action="@{Application.ajouter()}" method="POST">
                 #{/else}
-                    #{crud.form /}
+                    #{crud.form fields:['titre', 'adresse', 'lettre'] /}
                     #{if object.id}
                         <button class="btn btn-warning btn-ajouter" type="submit" name="_save"><span class="glyphicon glyphicon-pencil"></span> &{'recette.modifier'}</button>
                         <a href="@{Application.index()}" class="btn btn-default btn-ajouter"><span class="glyphicon glyphicon-chevron-left"></span> &{'recette.annuler'}</a>
@@ -85,6 +85,7 @@
                 #{/if}
             </ul>
             #{doLayout /}
+            #{pagination total:total, maxPerPage:2/}
         </div>
     </body>
 </html>

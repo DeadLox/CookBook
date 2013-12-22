@@ -27,6 +27,12 @@
     padding:0;
     font-size:20px;
 }
+.listeRecettes li .option {
+    display:none;
+}
+.listeRecettes li:hover .option {
+    display:inline;
+}
 .nav-tabs>li>a {
     font-size:18px;
     padding:5px 7px !important;
@@ -39,4 +45,19 @@
     float:right;
     width:400px;
     margin-top:23px;
+}
+
+.formRecette select.form-control {
+    display:block;
+}
+
+/* -- Pagination -- */
+div.pagination {
+    display:block;
+}
+div.pagination ul.pagination {
+    margin:0;
+}
+div.pagination select {
+    width:auto;
 }
