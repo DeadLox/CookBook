@@ -15,12 +15,9 @@ import models.*;
 import util.PaginationUtil;
 
 public class Application extends Controller {
-    private static Alpha selected = Alpha.A;
-    private static CRUD.ObjectType type = CRUD.ObjectType.get(Recettes.class);
+    public static Alpha selected = Alpha.A;
 
     public static void index() {
-        Recette object = new Recette();
-
         List<Alpha> alphas = Arrays.asList(Alpha.values());
         List<Recette> recettes = PaginationUtil.getPagination(params, selected);
         long total = PaginationUtil.getTotalPagination(params, selected);
@@ -29,14 +26,10 @@ public class Application extends Controller {
         renderArgs.put("selected", selected);
         renderArgs.put("recettes", recettes);
         renderArgs.put("total", total);
-        renderArgs.put("type", type);
-        renderArgs.put("object", object);
         render();
     }
 
     public static void all() {
-        Recette object = new Recette();
-
         List<Alpha> alphas = Arrays.asList(Alpha.values());
         List<Recette> recettes = PaginationUtil.getPaginationAll(params);
         long total = Recette.count();
@@ -46,78 +39,11 @@ public class Application extends Controller {
         map.put("selected", null);
         map.put("recettes", recettes);
         map.put("total", total);
-        map.put("type", type);
-        map.put("object", object);
-        map.put("all", true);
         renderTemplate("Application/index.html", map);
     }
 
     public static void lettre(Alpha lettreSelected){
         selected = lettreSelected;
-        index();
-    }
-
-    public static void ajouter() throws Exception {
-        List<Alpha> alphas = Arrays.asList(Alpha.values());
-        List<Recette> recettes = Recette.find("byLettre", selected).fetch();
-
-        notFoundIfNull(type);
-        Recette object = new Recette();
-        Binder.bindBean(params.getRootParamNode(), "object", object);
-        validation.valid(object);
-        if (validation.hasErrors()) {
-            flash.put("error", play.i18n.Messages.get("crud.hasErrors"));
-
-            Map<String, Object> map = new HashMap<String, Object>();
-            map.put("alphas", alphas);
-            map.put("selected", selected);
-            map.put("recettes", recettes);
-            map.put("type", type);
-            map.put("object", object);
-            renderTemplate("Application/index.html", map);
-        }
-        object._save();
-        flash.success(play.i18n.Messages.get("recette.add", type.modelName));
-        redirect("Application.index");
-    }
-
-    public static void modifier(Long id){
-        Recette recette = Recette.findById(id);
-        List<Alpha> alphas = Arrays.asList(Alpha.values());
-        List<Recette> recettes = Recette.find("byLettre", selected).fetch();
-
-        Recette object = recette;
-
-        Map<String, Object> map = new HashMap<String, Object>();
-        map.put("alphas", alphas);
-        map.put("selected", selected);
-        map.put("recettes", recettes);
-        map.put("type", type);
-        map.put("object", object);
-        renderTemplate("Application/index.html", map);
-    }
-
-    public static void save(Long id){
-        List<Alpha> alphas = Arrays.asList(Alpha.values());
-        List<Recette> recettes = Recette.find("byLettre", selected).fetch();
-
-        Recette object = Recette.findById(id);
-        Binder.bindBean(params.getRootParamNode(), "object", object);
-
-        Map<String, Object> map = new HashMap<String, Object>();
-        map.put("alphas", alphas);
-        map.put("selected", selected);
-        map.put("recettes", recettes);
-        map.put("type", type);
-        map.put("object", object);
-
-        validation.valid(object);
-        if (validation.hasErrors()) {
-            flash.put("error", play.i18n.Messages.get("crud.hasErrors"));
-        }
-        object.date = new Date();
-        object._save();
-        flash.success(play.i18n.Messages.get("recette.edit", type.modelName));
         index();
     }
 
@@ -134,7 +60,8 @@ public class Application extends Controller {
      * @param recherche
      */
     public static void recherche(String recherche){
-        List<Recette> recettes = Recette.find("byTitreLike", "%"+recherche+"%").fetch();
+        List<Recette> recettes = PaginationUtil.getSearchPagination(params, recherche);
+        long total = PaginationUtil.getSearchCount(params, recherche);
         Recette object = new Recette();
 
         List<Alpha> alphas = Arrays.asList(Alpha.values());
@@ -142,10 +69,24 @@ public class Application extends Controller {
         renderArgs.put("alphas", alphas);
         renderArgs.put("selected", selected);
         renderArgs.put("recettes", recettes);
-        renderArgs.put("type", type);
-        renderArgs.put("object", object);
+        renderArgs.put("total", total);
         renderArgs.put("recherche", recherche);
 
         render();
+    }
+
+    /**
+     * Genère l'url avec les paramètres de pagination
+     * @param page
+     * @return
+     */
+    public static String generateUrl(int page){
+        String params = request.querystring;
+        if (params.equals("")) {
+            params = "?page=" + page;
+        } else {
+            params = "?" + params + "&page=" + page;
+        }
+        return params;
     }
 }

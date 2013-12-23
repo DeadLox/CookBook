@@ -1,0 +1,18 @@
+#{extends 'main.html' /}
+#{set title:messages.get('crud.blank.title', type.modelName) /}
+
+<div id="crudBlank" class="${type.name}">
+
+    <h2 id="crudBlankTitle">&{'recette.ajouter.title'}</h2>
+
+    <div class="objectForm">
+    #{form action:@create(), enctype:'multipart/form-data'}
+        #{crud.form fields:['titre', 'adresse', 'lettre']/}
+        <p class="crudButtons">
+            <input class="btn btn-primary" type="submit" name="_save" value="&{'recette.save'}" />
+            <a class="btn btn-default" href="@{Application.index()}">&{'recette.annuler'}</a>
+        </p>
+    #{/form}
+    </div>
+
+</div>

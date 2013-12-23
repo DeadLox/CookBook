@@ -23,15 +23,27 @@
     border-radius:0 0 5px 5px;
 }
 .listeRecettes li {
-    margin:0;
-    padding:0;
-    font-size:20px;
-}
+     margin:0;
+     padding:0;
+     font-size:20px;
+ }
+ .listeRecettes li a {
+     text-transform:capitalize;
+ }
 .listeRecettes li .option {
     display:none;
 }
 .listeRecettes li:hover .option {
     display:inline;
+}
+/* --- Formulaire --- */
+.recettes .alert {
+    display:block;
+}
+
+/* --- Onglet --- */
+.nav-tabs {
+    margin-top: 30px;
 }
 .nav-tabs>li>a {
     font-size:18px;
@@ -51,13 +63,27 @@
     display:block;
 }
 
+.btn-addRecette {
+    float:right;
+    margin-top:23px;
+    margin-right:20px;
+}
+
 /* -- Pagination -- */
 div.pagination {
     display:block;
+    text-align:center;
 }
 div.pagination ul.pagination {
     margin:0;
 }
+div.pagination form {
+    display:inline;
+}
 div.pagination select {
-    width:auto;
+    display:inline;
+    width:60px;
+    height:34px;
+    margin-left:20px;
+    vertical-align:top;
 }

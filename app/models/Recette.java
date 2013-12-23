@@ -37,6 +37,11 @@ public class Recette extends Model {
         return this.titre;
     }
 
+    /**
+     * Met en surbrillance le texte recherché
+     * @param recherche
+     * @return
+     */
     public String hightlightRecherche(String recherche){
         return this.titre.replaceAll("(?i)"+recherche, "<span class=\"label label-warning\">"+recherche+"</span>");
     }

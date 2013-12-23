@@ -16,7 +16,7 @@
     <body>
         <div class="container">
             <div class="recherche">
-                #{form @Application.recherche(), method:'POST'}
+                #{form @Application.recherche(), method:'GET'}
                     <div class="input-group">
                           <span class="input-group-btn">
                             <button class="btn btn-primary" type="button"><span class="glyphicon glyphicon-search"></span> &{'rechercher.btn'}</button>
@@ -25,6 +25,8 @@
                     </div>
                 #{/form}
             </div>
+
+            <a class="btn btn-info btn-addRecette" href="@{Recettes.blank()}"><span class="glyphicon glyphicon-plus"></span> &{'recette.ajouter'}</a>
 
             <h1><a href="@{Application.index()}">&{'application.titre'}</a></h1>
 
@@ -39,53 +41,7 @@
             </p>
             #{/if}
 
-            <div class="formRecette form-inline">
-                #{if object.id}
-                    <form action="@{Application.save(object.id)}" method="POST">
-                #{/if}
-                #{else}
-                    <form action="@{Application.ajouter()}" method="POST">
-                #{/else}
-                    #{crud.form fields:['titre', 'adresse', 'lettre'] /}
-                    #{if object.id}
-                        <button class="btn btn-warning btn-ajouter" type="submit" name="_save"><span class="glyphicon glyphicon-pencil"></span> &{'recette.modifier'}</button>
-                        <a href="@{Application.index()}" class="btn btn-default btn-ajouter"><span class="glyphicon glyphicon-chevron-left"></span> &{'recette.annuler'}</a>
-                    #{/if}
-                    #{else}
-                        <button class="btn btn-primary btn-ajouter" type="submit" name="_save"><span class="glyphicon glyphicon-plus"></span> &{'ajouter.recette'}</button>
-                    #{/else}
-                </form>
-            </div>
-
-            <ul class="nav nav-tabs">
-                <li #{if all}class="active"#{/if}><a href="@{Application.all()}">&{'tout'} <span class="label label-info">${models.Recette.count()}</span></a></li>
-                #{list items:alphas, as:'alpha'}
-                    #{set nbRecette=alpha.getNbRecette() /}
-                    #{if alpha.equals(selected) && !recherche}
-                        <li class="active">
-                            <a href="@{Application.lettre(alpha)}">${alpha}
-                                #{if nbRecette > 0}
-                                <span class="label label-info">${nbRecette}</span>
-                                #{/if}
-                            </a>
-                        </li>
-                    #{/if}
-                    #{else}
-                        <li>
-                            <a href="@{Application.lettre(alpha)}">${alpha}
-                                #{if nbRecette > 0}
-                                <span class="label label-info">${nbRecette}</span>
-                                #{/if}
-                            </a>
-                        </li>
-                    #{/else}
-                #{/list}
-                #{if recherche}
-                    <li class="active"><a href="">&{'recherche'} <span class="label label-info">${recettes.size()}</span></a></li>
-                #{/if}
-            </ul>
             #{doLayout /}
-            #{pagination total:total, maxPerPage:2/}
         </div>
     </body>
 </html>

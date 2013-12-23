@@ -1,20 +1,41 @@
 %{
-    pageSelected = util.PaginationUtil.getPage(params);
-    nbPage = Math.ceil(_total / _maxPerPage);
+    pageSelected = (int) util.PaginationUtil.getPage(params);
+    nbPage = (int) Math.abs(Math.ceil(_total / util.PaginationUtil.getMaxPerPage(params)));
+    rechercheParam = "?page=";
+    if (request.path.contains("recherche") && params.get('recherche') != null) {
+        recherche = params.get('recherche');
+        rechercheParam = "?recherche=" + recherche.urlEncode() + "&page=";
+    }
 /}%
-#{if nbPage > 1}
-    <div class="pagination">
-        #{select name:'max', items:util.PaginationUtil.listMaxPerPage, class:'form-control', value:util.PaginationUtil.getMaxPerPage(params)/}
+<div class="pagination">
+    #{if nbPage > 1}
         <ul class="pagination">
             #{if pageSelected > 1}
-                <li><a href="?page=${pageSelected-1}">&{'precedent'}</a></li>
+                <li><a href="${rechercheParam}1">&{'first.page'}</a></li>
+                <li><a href="${rechercheParam}${pageSelected-1}">&{'precedent'}</a></li>
             #{/if}
             #{list items:1..nbPage, as:'page'}
-                <li class="#{if pageSelected == page}active#{/if}"><a href="?page=${page}">${page}</a></li>
+
+                <li class="#{if pageSelected == page}active#{/if}"><a href="${rechercheParam}${page}">${page}</a></li>
             #{/list}
             #{if pageSelected < nbPage}
-                <li><a href="?page=${pageSelected+1}">&{'suivant'}</a></li>
+                <li><a href="${rechercheParam}${pageSelected+1}">&{'suivant'}</a></li>
+                <li><a href="${rechercheParam}${nbPage}">&{'last.page'}</a></li>
             #{/if}
         </ul>
-    </div>
-#{/if}
+    #{/if}
+    <form action="${request.url}" method="GET">
+        <input type="hidden" name="recherche" value="${recherche}" />
+        <input type="hidden" name="page" value="${pageSelected}" />
+        #{select id:'paginationMax', name:'max', items:util.PaginationUtil.listMaxPerPage, class:'form-control', value:util.PaginationUtil.getMaxPerPage(params)/}
+    </form>
+    <script>
+        $(document).ready(function(){
+             // Détecte le changement de limite de pagination et soumet le formulaire
+             $('#paginationMax').change(function(){
+                console.log($(this).val());
+                $(this).parent().submit();
+             });
+        });
+    </script>
+</div>

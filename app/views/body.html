@@ -1,0 +1,31 @@
+#{extends 'main.html' /}
+
+<ul class="nav nav-tabs">
+    <li #{if request.path.contains('all')}class="active"#{/if}><a href="@{Application.all()}">&{'tout'} <span class="label label-info">${models.Recette.count()}</span></a></li>
+    #{list items:alphas, as:'alpha'}
+        #{set nbRecette=alpha.getNbRecette() /}
+        #{if alpha.equals(selected) && !recherche}
+            <li class="active">
+                <a href="@{Application.lettre(alpha)}">${alpha}
+                    #{if nbRecette > 0}
+                    <span class="label label-info">${nbRecette}</span>
+                    #{/if}
+                </a>
+            </li>
+        #{/if}
+        #{else}
+            <li>
+                <a href="@{Application.lettre(alpha)}">${alpha}
+                    #{if nbRecette > 0}
+                    <span class="label label-info">${nbRecette}</span>
+                    #{/if}
+                </a>
+            </li>
+        #{/else}
+    #{/list}
+    #{if recherche}
+        <li class="active"><a href="">&{'recherche'} <span class="label label-info">${recettes.size()}</span></a></li>
+    #{/if}
+</ul>
+#{doLayout /}
+#{pagination total:total/}

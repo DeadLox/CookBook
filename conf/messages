@@ -1,26 +1,38 @@
 application.titre=CookBook
 
 # Recette
-titre=Titre
-adresse=Adresse
-lettre=Lettre
+titre               =Titre
+adresse             =Adresse
+lettre              =Lettre
 
-ajouter.recette=Ajouter une recette
-recette.modifier=Modifier
-recette.supprimer=Supprimer
-recette.annuler=Annuler
-aucune.recette=Aucune recette
-recette.supprimer.success:La recette %1$s a été supprimée.
-recette.add=La recette %1$s a été ajoutée.
-recette.edit=La recette %1$s a été modifiée.
+ajouter.recette     =Ajouter une recette
+recette.ajouter     =Ajouter une nouvelle recette
+recette.modifier    =Modifier
+recette.supprimer   =Supprimer
+recette.annuler     =Annuler
+recette.empty       =Aucune recette
 
-rechercher.texte=Votre recherche...
-rechercher.btn=Rechercher
-recherche=Recherche
+# Validation
+recette.supprimer.success   =La recette %1$s a été supprimée.
+recette.add                 =La recette %1$s a été ajoutée.
+recette.edit                =La recette %1$s a été modifiée.
+
+# Formulaire
+recette.ajouter.title       = Ajouter une nouvelle recette
+recette.modifier.title      = Modifier une recette
+recette.save                = Enregistrer
+
+# Recherche
+rechercher.texte    =Votre recherche...
+rechercher.btn      =Rechercher
+recherche           =Recherche
 
 #Pagination
-tout=Tout
-precedent=Précédent
-suivant=Suivant
+tout                = Tout
+precedent           = <
+suivant             = >
+first.page          = Première page
+last.page           = Dernière page
 
-crud.hasErrors=Merci de remplir tous les champs
+# CRUD
+crud.hasErrors          = Merci de remplir tous les champs
