@@ -1,4 +1,4 @@
-#{extends 'main.html' /}
+#{extends 'body.html' /}
 #{set title:'Recherche' /}
 
 #{if recettes.size() > 0 }
@@ -6,8 +6,10 @@
     #{list items:recettes,as:'recette'}
         <li>
             <a target="_blank" href="${recette.adresse}">${recette.hightlightRecherche(recherche).raw()}</a>
-            <a class="btn btn-info btn-xs" href="@{Application.modifier(recette.id)}"><span class="glyphicon glyphicon-pencil"></span> &{'recette.modifier'}</a>
-            <a class="btn btn-danger btn-xs" href="@{Application.supprimer(recette.id)}"><span class="glyphicon glyphicon-remove"></span> &{'recette.supprimer'}</a>
+            <span class="option">
+                <a class="btn btn-info btn-xs" href="@{Recettes.show(recette.id)}"><span class="glyphicon glyphicon-pencil"></span> &{'recette.modifier'}</a>
+                <a class="btn btn-danger btn-xs" href="@{Application.supprimer(recette.id)}"><span class="glyphicon glyphicon-remove"></span> &{'recette.supprimer'}</a>
+            </span>
         </li>
     #{/list}
     </ul>
