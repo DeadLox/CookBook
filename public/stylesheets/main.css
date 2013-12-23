@@ -1,3 +1,8 @@
+/* --- Entete --- */
+h1 .version {
+    font-size:14px;
+}
+
 .crudHelp {
     display:none;
 }

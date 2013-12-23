@@ -1,4 +1,5 @@
-application.titre=CookBook
+application.titre   =CookBook
+application.version =v1.1
 
 # Recette
 titre               =Titre
