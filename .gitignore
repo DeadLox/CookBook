@@ -3,6 +3,9 @@
 *.iml
 *.iws
 
+# Fichiers OSX
+*.DS_Store
+
 # Dossier et fichiers inutiles
 tmp
 dump
