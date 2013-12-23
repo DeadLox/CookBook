@@ -37,6 +37,7 @@ public class Recettes extends CRUD {
             flash.error(play.i18n.Messages.get("crud.hasErrors"));
             render("Recettes/blank.html", type, object);
         }
+        object.dateDeCreation = new Date();
         object._save();
         flash.success(play.i18n.Messages.get("recette.add", type.modelName));
         Application.index();
@@ -56,7 +57,7 @@ public class Recettes extends CRUD {
             flash.error(play.i18n.Messages.get("crud.hasErrors"));
             render("Recettes/show.html", type, object);
         }
-        object.date = new Date();
+        object.dateDeModification = new Date();
         object._save();
         flash.success(play.i18n.Messages.get("recette.edit", type.modelName));
         Application.index();

@@ -4,6 +4,7 @@ import controllers.CRUD;
 import play.data.validation.Required;
 import play.db.jpa.Model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import java.util.Date;
 
@@ -23,15 +24,10 @@ public class Recette extends Model {
     @Required
     public Alpha lettre;
     @Required
-    @CRUD.Hidden
+    @Column(columnDefinition="Integer default '0'")
     public int note;
-    @CRUD.Hidden
-    public Date date;
-
-    public Recette(){
-        this.note = 1;
-        this.date = new Date();
-    }
+    public Date dateDeCreation;
+    public Date dateDeModification;
 
     public String toString(){
         return this.titre;
