@@ -56,7 +56,7 @@ public class PaginationUtil extends Controller {
     public static List<Recette> getSearchPagination(Scope.Params params, String recherche){
         int page = getPage(params);
         int max = getMaxPerPage(params);
-        return Recette.find("titre = ? ORDER BY titre ASC", "%"+recherche+"%").fetch(page, max);
+        return Recette.find("titre ILIKE ? ORDER BY titre ASC", "%"+recherche+"%").fetch(page, max);
     }
 
     /**

@@ -42,6 +42,10 @@ public class Application extends Controller {
         renderTemplate("Application/index.html", map);
     }
 
+    /**
+     * Sélectionne une lettre
+     * @param lettreSelected
+     */
     public static void lettre(Alpha lettreSelected){
         selected = lettreSelected;
         index();
@@ -88,5 +92,13 @@ public class Application extends Controller {
             params = "?" + params + "&page=" + page;
         }
         return params;
+    }
+
+    /**
+     * Affiche la liste des changements de versions statique
+     * @return
+     */
+    public static void changelog(){
+        render();
     }
 }

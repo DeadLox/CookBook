@@ -1,5 +1,6 @@
-application.titre   =CookBook
-application.version =v1.1
+application.titre       =CookBook
+application.version     =v1.2
+application.changelog   =Changelog:
 
 # Recette
 titre               =Titre
