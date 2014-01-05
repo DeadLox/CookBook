@@ -14,5 +14,13 @@
         </p>
     #{/form}
     </div>
-
 </div>
+<script>
+    $(document).ready(function(){
+        // Présélectionne la lettre en fonction du titre de la recette
+        $('#object_titre').change(function(){
+            var firstLetter = $(this).val().charAt(0).toUpperCase();
+            $('#object_lettre').val(firstLetter).attr('selected', 'selected');
+        });
+    });
+</script>
