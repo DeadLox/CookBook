@@ -14,7 +14,10 @@ GET     /recherche                              Application.recherche
 GET     /changlog                               Application.changelog
 
 # Import CRUD routes
-*     /admin           module:crud
+*     /admin                                    module:crud
+
+# Module Secure
+*       /                                       module:secure
 
 # Ignore favicon requests
 GET     /favicon.ico                            404

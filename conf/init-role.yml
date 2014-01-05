@@ -1,0 +1,9 @@
+###########################
+# Rôles
+###########################
+Role(administrateur):
+  libelle: Administrateur
+  level: 1
+Role(membre):
+  libelle: Membre
+  level: 0
