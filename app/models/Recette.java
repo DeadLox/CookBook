@@ -6,6 +6,7 @@ import play.db.jpa.Model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import java.util.Comparator;
 import java.util.Date;
 
 /**
@@ -16,7 +17,7 @@ import java.util.Date;
  * To change this template use File | Settings | File Templates.
  */
 @Entity
-public class Recette extends Model {
+public class Recette extends Model implements Comparator {
     @Required
     public String titre;
     @Required
@@ -40,5 +41,16 @@ public class Recette extends Model {
      */
     public String hightlightRecherche(String recherche){
         return this.titre.replaceAll("(?i)"+recherche, "<span class=\"label label-warning\">"+recherche+"</span>");
+    }
+
+    @Override
+    public int compare(Object o, Object o2) {
+        Recette recette1 = (Recette) o;
+        Recette recette2 = (Recette) o2;
+        if (recette1 != null && recette2 != null) {
+            return compare(recette1, recette2);
+        } else {
+            return 0;
+        }
     }
 }

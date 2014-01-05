@@ -1,0 +1,8 @@
+#{if _arg.dateDeCreation}
+    #{if _arg.dateDeModification && _arg.dateDeModification != _arg.dateDeCreation}
+        <span class="label label-primary dateAjout"><i class="glyphicon glyphicon-time"></i>  Modifiée le ${_arg.dateDeModification.format("dd/MM/yyyy à HH:mm:ss")}</span>
+    #{/if}
+    #{else}
+        <span class="label label-primary dateAjout"><i class="glyphicon glyphicon-time"></i>  Ajoutée le ${_arg.dateDeCreation.format("dd/MM/yyyy à HH:mm:ss")}</span>
+    #{/else}
+#{/if}

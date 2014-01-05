@@ -74,6 +74,16 @@ h1 .version {
     margin-right:20px;
 }
 
+.dateAjout {
+    display:inline-block !important;
+    width: 21px;
+    padding-left: 4px !important;
+    font-size:13px !important;
+}
+.dateAjout:hover {
+    width:auto;
+}
+
 /* -- Pagination -- */
 div.pagination {
     display:block;
