@@ -14,6 +14,10 @@ import play.libs.Codec;
 public class Security extends Secure.Security {
     private static Logger logger = Logger.getLogger(Security.class);
 
+    public static void register(){
+        render();
+    }
+
     /**
      * Login
      *

@@ -84,6 +84,28 @@ h1 .version {
     width:auto;
 }
 
+/* -- Login -- */
+#login {
+    width: 400px;
+    margin: 100px auto;
+    padding: 20px;
+    border: 10px solid #eee;
+    border-radius:20px;
+}
+#login h1 {
+    margin:0 auto 10px auto;
+    text-align:center;
+}
+#login #signin-field {
+    text-align:center;
+    margin:0;
+}
+.btn-logout {
+    float:right;
+    margin-top:23px;
+    margin-right:10px;
+}
+
 /* -- Pagination -- */
 div.pagination {
     display:block;

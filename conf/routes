@@ -18,6 +18,7 @@ GET     /changlog                               Application.changelog
 
 # Module Secure
 *       /                                       module:secure
+*       /register                               Security.register
 
 # Ignore favicon requests
 GET     /favicon.ico                            404

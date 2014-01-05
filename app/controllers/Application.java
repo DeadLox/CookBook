@@ -1,19 +1,14 @@
 package controllers;
 
-import play.*;
-import play.data.binding.Binder;
-import play.db.Model;
-import play.db.jpa.GenericModel;
-import play.exceptions.TemplateNotFoundException;
 import play.i18n.Messages;
 import play.mvc.*;
 
-import java.lang.reflect.Constructor;
 import java.util.*;
 
 import models.*;
 import util.PaginationUtil;
 
+@With(Secure.class)
 public class Application extends Controller {
     public static Alpha selected = Alpha.A;
 

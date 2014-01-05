@@ -28,6 +28,10 @@
 
             <a class="btn btn-info btn-addRecette" href="@{Recettes.blank()}"><span class="glyphicon glyphicon-plus"></span> &{'recette.ajouter'}</a>
 
+            #{if controllers.Security.isConnected()}
+                <a class="btn btn-danger btn-logout" href="@{Secure.logout()}">&{'logout'}</a>
+            #{/if}
+
             <h1><a href="@{Application.index()}">&{'application.titre'}</a> <a class="version" href="@{Application.changelog()}">&{'application.version'}</a></h1>
 
             #{if flash.error}
