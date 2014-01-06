@@ -1,8 +1,17 @@
 package controllers;
 
 import models.Utilisateur;
+import org.apache.commons.mail.EmailException;
+import org.apache.commons.mail.SimpleEmail;
 import org.apache.log4j.Logger;
+import play.data.validation.Email;
+import play.data.validation.Required;
+import play.data.validation.Validation;
+import play.i18n.Messages;
 import play.libs.Codec;
+import play.libs.Mail;
+
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -13,9 +22,68 @@ import play.libs.Codec;
  */
 public class Security extends Secure.Security {
     private static Logger logger = Logger.getLogger(Security.class);
+    private static String emailFrom = "dead.lox@hotmail.fr";
 
-    public static void register(){
+    /**
+     * Inscription
+     * @param email
+     * @param password
+     * @throws Throwable
+     */
+    public static void register(@Required String email, @Required String password) throws Throwable {
+        logger.info(email +" "+ password);
+        if (email != null && password != null) {
+            boolean error = false;
+            // Vérifie l'email et le password
+            if (!email.equals("")) {
+                // Si l'email existe déjà
+                if (Utilisateur.count("byEmail", email) > 0) {
+                    error = true;
+                    flash.put("error", Messages.get("register.email.exist"));
+                } else {
+                    Validation.ValidationResult result = validation.email(email);
+                    if (result.ok) {
+                        if (password.equals("") || password.length() < 6) {
+                            error = true;
+                            flash.put("error", Messages.get("register.password.valid"));
+                        }
+                    } else {
+                        error = true;
+                        flash.put("error", Messages.get("register.email.valid"));
+                    }
+                }
+            } else {
+                error = true;
+                flash.put("error", Messages.get("register.email.empty"));
+            }
+            if (error) {
+                render();
+            }
+            // On créé l'utilisateur
+            Utilisateur user = new Utilisateur();
+            user.email = email;
+            user.password = password;
+            user.save();
+
+            sendActivationMail(user);
+
+            flash.put("success", Messages.get("register.create"));
+            Secure.login();
+        }
         render();
+    }
+
+    public static void sendActivationMail(Utilisateur user){
+        try {
+            SimpleEmail email = new SimpleEmail();
+            email.setFrom(emailFrom);
+            email.addTo(user.email);
+            email.setSubject(Messages.get("register.email.subject"));
+            email.setMsg(Messages.get("register.email.message"));
+            //Mail.send(email);
+        } catch (EmailException e) {
+            logger.warn("L'email n'a pas pu être envoyé");
+        }
     }
 
     /**

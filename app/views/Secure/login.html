@@ -2,6 +2,7 @@
 
 <div id="login">
 	<h1>&{'login.title'}</h1>
+    <hr/>
 		
 	#{form @authenticate()}
         #{if flash.error}
@@ -28,6 +29,7 @@
 			<label for="remember">&{'remember'}</label>
 		</p>
 		<p id="signin-field">
+            <a class="btn btn-xs btn-info" href="@{Security.register()}">&{'register'}</a>
 			<input class="btn btn-primary" type="submit" id="signin" value="&{'signin'}" />
 		</p>
 	#{/form}

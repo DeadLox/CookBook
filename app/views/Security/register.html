@@ -1,1 +1,33 @@
-<h1>Register</h1>
+#{extends 'Secure/layout.html' /}
+
+<div id="login">
+    <h1>&{'register.title'}</h1>
+    <hr/>
+
+    #{form @Security.register()}
+        #{if flash.error}
+        <p class="alert alert-danger">
+            &{flash.error}
+        </p>
+        #{/if}
+        #{if flash.success}
+        <p class="alert alert-success">
+            &{flash.success}
+        </p>
+        #{/if}
+
+        <p id="username-field">
+            <label for="email">&{'email'}</label>
+            <input class="form-control" type="text" name="email" id="email" value="${flash.username}" />
+        </p>
+        <p id="password-field">
+            <label for="password">&{'password'}</label>
+            <input class="form-control" type="password" name="password" id="password" value="" />
+        </p>
+        <hr/>
+        <p id="signin-field">
+            <a class="btn btn-xs btn-info" href="@{Secure.login()}">&{'signin'}</a>
+            <input class="btn btn-primary" type="submit" id="signin" value="&{'register'}" />
+        </p>
+    #{/form}
+</div>
