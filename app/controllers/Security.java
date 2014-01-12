@@ -4,14 +4,10 @@ import models.Utilisateur;
 import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.SimpleEmail;
 import org.apache.log4j.Logger;
-import play.data.validation.Email;
 import play.data.validation.Required;
 import play.data.validation.Validation;
 import play.i18n.Messages;
 import play.libs.Codec;
-import play.libs.Mail;
-
-import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -97,7 +93,16 @@ public class Security extends Secure.Security {
         // Encode le mot de passe en MD5
         password = Codec.hexMD5(password);
         Utilisateur user = Utilisateur.find("email = ? AND password = ?", email, password).first();
-        return user != null && user.password.equals(password);
+        if (user != null) {
+            if (user.etat == 0) {
+                flash.put("alert", Messages.get("application.account.not.activate"));
+                return false;
+            } else {
+                return user.password.equals(password);
+            }
+        } else {
+            return false;
+        }
     }
 
     /**
@@ -120,5 +125,29 @@ public class Security extends Secure.Security {
      */
     static Utilisateur getLoggedMember(){
         return Utilisateur.find("byEmail", connected()).first();
+    }
+
+    /**
+     * Si le code d'activation est le bon, on active le compte
+     */
+    public static void activation(String email, String code){
+        Utilisateur user = Utilisateur.find("byEmail", email).first();
+        if (user != null) {
+            if (user.etat == 0) {
+                if (code.equals(user.activationCode)) {
+                    // On active le compte
+                    user.etat = 1;
+                    user.save();
+                    flash.put("success", Messages.get("application.activation.success"));
+                } else {
+                    flash.put("error", Messages.get("application.activation.wrong.code"));
+                }
+            } else {
+                flash.put("error", Messages.get("application.activation.account.already.activate"));
+            }
+        } else {
+            flash.put("error", Messages.get("application.activation.no.account", email));
+        }
+        render();
     }
 }

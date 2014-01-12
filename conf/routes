@@ -12,6 +12,7 @@ POST    /modifier/{id}                          Application.save
 GET     /supprimer/{id}                         Application.supprimer
 GET     /recherche                              Application.recherche
 GET     /changlog                               Application.changelog
+GET     /activation/{email}/{code}              Security.activation
 
 # Import CRUD routes
 *     /admin                                    module:crud

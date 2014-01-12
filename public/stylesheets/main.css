@@ -59,7 +59,6 @@ h1 .version {
     margin-top:24px;
 }
 .recherche {
-    float:right;
     width:400px;
     margin-top:23px;
 }
@@ -70,8 +69,6 @@ h1 .version {
 
 .btn-addRecette {
     float:right;
-    margin-top:23px;
-    margin-right:20px;
 }
 
 .dateAjout {
@@ -82,6 +79,20 @@ h1 .version {
 }
 .dateAjout:hover {
     width:auto;
+}
+
+/* -- Info member -- */
+.infoMember {
+    margin-top:23px;
+}
+.userName {
+    float:right;
+    padding-top: 6px;
+    margin-right:20px;
+}
+.btn-logout {
+    float:right;
+    margin-right:10px;
 }
 
 /* -- Login -- */
@@ -99,11 +110,6 @@ h1 .version {
 #login #signin-field {
     text-align:center;
     margin:0;
-}
-.btn-logout {
-    float:right;
-    margin-top:23px;
-    margin-right:10px;
 }
 
 /* -- Pagination -- */

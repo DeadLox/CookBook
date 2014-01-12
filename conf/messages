@@ -50,6 +50,20 @@ register.email.exist= Cet email existe déjà, veuillez en choisir un autre.
 register.email.empty= Veuillez remplir l'email
 register.email.valid= L'email n'est pas valide.
 register.password.valid= Le mot de passe doit faire 6 caractères minimum.
+application.login.bienvenue = Bienvenue:
+secure.username=Email:
+secure.password=Mot de passe:
+secure.remember=Rester connecté ?
+secure.signin= Se connecter
+secure.error= Oops, email ou mot de passe incorrecte
+secure.logout=Vous avez été déconnecté.
+
+# Activation
+application.activation.success                  = Votre a été activé, vous pouvez désormais vous connecter
+application.activation.account.already.activate = Votre compte est déjà activé
+application.activation.no.account               = Ce compte n'existe pas: %1$s
+application.activation.wrong.code               = Mauvais code d'activation
+application.account.not.activate                = Ce compte n'est pas activé
 
 # CRUD
 crud.hasErrors          = Merci de remplir tous les champs

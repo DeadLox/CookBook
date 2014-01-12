@@ -15,24 +15,28 @@
     </head>
     <body>
         <div class="container">
-            <div class="recherche">
-                #{form @Application.recherche(), method:'GET'}
-                    <div class="input-group">
-                          <span class="input-group-btn">
-                            <button class="btn btn-primary" type="button"><span class="glyphicon glyphicon-search"></span> &{'rechercher.btn'}</button>
-                          </span>
-                        <input type="text" class="form-control" name="recherche" placeholder="#{if recherche}${recherche}#{/if}#{else}&{'rechercher.texte'}#{/else}">
-                    </div>
-                #{/form}
+
+            <div class="infoMember">
+                <a class="btn btn-danger btn-logout" href="@{Secure.logout()}"><span class="glyphicon glyphicon-log-out"></span> &{'logout'}</a>
+                <span class="userName">&{'application.login.bienvenue'} <strong>${controllers.Security.getLoggedMember()}</strong></span>
             </div>
 
-            <a class="btn btn-info btn-addRecette" href="@{Recettes.blank()}"><span class="glyphicon glyphicon-plus"></span> &{'recette.ajouter'}</a>
-
-            #{if controllers.Security.isConnected()}
-                <a class="btn btn-danger btn-logout" href="@{Secure.logout()}">&{'logout'}</a>
-            #{/if}
-
             <h1><a href="@{Application.index()}">&{'application.titre'}</a> <a class="version" href="@{Application.changelog()}">&{'application.version'}</a></h1>
+
+            <div class="menu-bar">
+                <a class="btn btn-info btn-addRecette" href="@{Recettes.blank()}"><span class="glyphicon glyphicon-plus"></span> &{'recette.ajouter'}</a>
+
+                <div class="recherche">
+                    #{form @Application.recherche(), method:'GET'}
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="recherche" placeholder="#{if recherche}${recherche}#{/if}#{else}&{'rechercher.texte'}#{/else}">
+                        <span class="input-group-btn">
+                            <button class="btn btn-primary" type="button"><span class="glyphicon glyphicon-search"></span> &{'rechercher.btn'}</button>
+                        </span>
+                    </div>
+                    #{/form}
+                </div>
+            </div>
 
             #{if flash.error}
             <p class="alert alert-danger">

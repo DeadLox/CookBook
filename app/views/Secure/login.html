@@ -1,15 +1,23 @@
+#{set title:messages.get('application.titre') /}
 #{extends 'Secure/layout.html' /}
 
 <div id="login">
-	<h1>&{'login.title'}</h1>
+	<h1><a href="@{Application.index()}">&{'login.title'}</a></h1>
     <hr/>
 		
 	#{form @authenticate()}
-        #{if flash.error}
-        <p class="alert alert-danger">
-            &{flash.error}
+        #{if flash.alert}
+        <p class="alert alert-warning">
+            &{flash.alert}
         </p>
         #{/if}
+        #{else}
+            #{if flash.error}
+            <p class="alert alert-danger">
+                &{flash.error}
+            </p>
+            #{/if}
+        #{/else}
         #{if flash.success}
         <p class="alert alert-success">
             &{flash.success}

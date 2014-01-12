@@ -1,11 +1,11 @@
 package models;
 
-import controllers.CRUD;
 import play.data.validation.Required;
 import play.db.jpa.Model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 import java.util.Comparator;
 import java.util.Date;
 
@@ -24,6 +24,8 @@ public class Recette extends Model implements Comparator {
     public String adresse;
     @Required
     public Alpha lettre;
+    @OneToOne
+    public Utilisateur auteur;
     @Required
     @Column(columnDefinition="Integer default '0'")
     public int note;
