@@ -23,7 +23,7 @@ public class Utilisateur extends Model {
     @Required
     @Min(6)
     public String password;
-
+    @Required
     public String activationCode;
     @CRUD.Hidden
     public Integer etat;
@@ -41,6 +41,21 @@ public class Utilisateur extends Model {
     public Utilisateur(){
         this.etat = 0;
         this.activationCode = RandomStringUtils.randomAlphanumeric(20).toUpperCase();
+    }
+
+    /**
+     * Retourne le nombre de recette en fonction d'une lettre
+     * @param lettre
+     * @return
+     */
+    public int getNbRecette(Alpha lettre){
+        int nbRecette = 0;
+        for (Recette recette : this.recettes) {
+            if (recette.lettre == lettre) {
+                nbRecette++;
+            }
+        }
+        return nbRecette;
     }
 
     public String toString(){

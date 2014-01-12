@@ -111,7 +111,7 @@ public class Security extends Secure.Security {
      * @param profile
      * @return Boolean
      */
-    static boolean check(String profile) {
+    public static boolean check(String profile) {
         Utilisateur user = Utilisateur.find("byEmail", connected()).first();
         if (user.role.equals(profile)) {
             return true;
@@ -123,7 +123,7 @@ public class Security extends Secure.Security {
      * Retourne l'utilisateur connecté
      * @return Utilisateur
      */
-    static Utilisateur getLoggedMember(){
+    public static Utilisateur getLoggedMember(){
         return Utilisateur.find("byEmail", connected()).first();
     }
 

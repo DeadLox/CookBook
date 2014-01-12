@@ -4,6 +4,7 @@ import models.Recette;
 import models.Role;
 import models.Utilisateur;
 import org.apache.log4j.Logger;
+import play.Play;
 import play.jobs.Job;
 import play.jobs.OnApplicationStart;
 import play.test.Fixtures;
@@ -22,6 +23,10 @@ public class Bootstrap extends Job {
     private static Logger logger = Logger.getLogger(Bootstrap.class);
 
     public void doJob() {
+        if ("".equals(Play.id) && Recette.count() == 0) {
+            logger.warn("Load recetttes");
+            Fixtures.loadModels("init-recette.yml");
+        }
         if (Role.count() == 0) {
             logger.warn("Load Rôles");
             //Fixtures.loadModels("init-role.yml");

@@ -1,9 +1,10 @@
 #{extends 'main.html' /}
+#{set loggedMember=controllers.Security.getLoggedMember() /}
 
 <ul class="nav nav-tabs">
-    <li #{if request.path.contains('all')}class="active"#{/if}><a href="@{Application.all()}">&{'tout'} <span class="label label-info">${models.Recette.count()}</span></a></li>
-    #{list items:alphas, as:'alpha'}
-        #{set nbRecette=alpha.getNbRecette() /}
+    <li #{if request.path.contains('all')}class="active"#{/if}><a href="@{Application.all()}">&{'tout'} <span class="label label-info">${loggedMember.recettes.size()}</span></a></li>
+    #{list items:models.Alpha.values(), as:'alpha'}
+        #{set nbRecette= loggedMember.getNbRecette(alpha) /}
         #{if nbRecette > 0}
             <li class="#{if alpha.equals(selected) && !recherche}active#{/if}">
                 <a href="@{Application.lettre(alpha)}">${alpha}

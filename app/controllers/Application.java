@@ -11,14 +11,13 @@ import util.PaginationUtil;
 
 @With(Secure.class)
 public class Application extends Controller {
-    public static Alpha selected = Alpha.A;
+    public static Alpha alphaDefaut = Alpha.A;
 
     public static void index() {
-        List<Alpha> alphas = Arrays.asList(Alpha.values());
+        Alpha selected = getSelected();
         List<Recette> recettes = PaginationUtil.getPagination(params, selected);
         long total = PaginationUtil.getTotalPagination(params, selected);
 
-        renderArgs.put("alphas", alphas);
         renderArgs.put("selected", selected);
         renderArgs.put("recettes", recettes);
         renderArgs.put("total", total);
@@ -26,12 +25,10 @@ public class Application extends Controller {
     }
 
     public static void all() {
-        List<Alpha> alphas = Arrays.asList(Alpha.values());
         List<Recette> recettes = PaginationUtil.getPaginationAll(params);
         long total = Recette.count();
 
         Map<String, Object> map = new HashMap<String, Object>();
-        map.put("alphas", alphas);
         map.put("selected", null);
         map.put("recettes", recettes);
         map.put("total", total);
@@ -39,11 +36,23 @@ public class Application extends Controller {
     }
 
     /**
+     * Vérifie si une lettre est déjà sélectionnée en session, sinon retourne la lettre par défaut A
+     * @return
+     */
+    private static Alpha getSelected() {
+        if (session.get("selected") != null){
+            return Alpha.valueOf(session.get("selected"));
+        } else {
+            return alphaDefaut;
+        }
+    }
+
+    /**
      * Sélectionne une lettre
      * @param lettreSelected
      */
     public static void lettre(Alpha lettreSelected){
-        selected = lettreSelected;
+        session.put("selected", lettreSelected);
         index();
     }
 
@@ -62,11 +71,9 @@ public class Application extends Controller {
     public static void recherche(String recherche){
         List<Recette> recettes = PaginationUtil.getSearchPagination(params, recherche);
         long total = PaginationUtil.getSearchCount(params, recherche);
-        Recette object = new Recette();
 
-        List<Alpha> alphas = Arrays.asList(Alpha.values());
+        Alpha selected = getSelected();
 
-        renderArgs.put("alphas", alphas);
         renderArgs.put("selected", selected);
         renderArgs.put("recettes", recettes);
         renderArgs.put("total", total);

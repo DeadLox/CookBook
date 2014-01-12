@@ -16,9 +16,11 @@
     <body>
         <div class="container">
 
+            #{set loggedMember=controllers.Security.getLoggedMember() /}
+
             <div class="infoMember">
                 <a class="btn btn-danger btn-logout" href="@{Secure.logout()}"><span class="glyphicon glyphicon-log-out"></span> &{'logout'}</a>
-                <span class="userName">&{'application.login.bienvenue'} <strong>${controllers.Security.getLoggedMember()}</strong></span>
+                <span class="userName">&{'application.login.bienvenue'} <strong>${loggedMember.email}</strong></span>
             </div>
 
             <h1><a href="@{Application.index()}">&{'application.titre'}</a> <a class="version" href="@{Application.changelog()}">&{'application.version'}</a></h1>

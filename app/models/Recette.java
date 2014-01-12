@@ -1,6 +1,9 @@
 package models;
 
+import controllers.Secure;
+import controllers.Security;
 import play.data.validation.Required;
+import play.data.validation.Unique;
 import play.db.jpa.Model;
 
 import javax.persistence.Column;
@@ -18,6 +21,7 @@ import java.util.Date;
  */
 @Entity
 public class Recette extends Model implements Comparator {
+    @Unique
     @Required
     public String titre;
     @Required
@@ -31,6 +35,10 @@ public class Recette extends Model implements Comparator {
     public int note;
     public Date dateDeCreation;
     public Date dateDeModification;
+
+    public Recette() {
+        this.lettre = Alpha.A;
+    }
 
     public String toString(){
         return this.titre;

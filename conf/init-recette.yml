@@ -1,0 +1,23 @@
+###########################
+# Recette
+###########################
+Recette(recette1):
+  titre: Recette 1
+  adresse: http://www.google.fr
+  lettre: 1
+Recette(recette2):
+  titre: Recette 2
+  adresse: http://www.google.fr
+  lettre: 2
+Recette(recette3):
+  titre: Recette 3
+  adresse: http://www.google.fr
+  lettre: 3
+Recette(recette4):
+  titre: Recette 4
+  adresse: http://www.google.fr
+  lettre: 4
+Recette(recette5):
+  titre: Recette 5
+  adresse: http://www.google.fr
+  lettre: 5

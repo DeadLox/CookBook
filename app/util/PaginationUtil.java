@@ -1,7 +1,10 @@
 package util;
 
+import controllers.Security;
 import models.Alpha;
 import models.Recette;
+import models.Utilisateur;
+import org.apache.log4j.Logger;
 import play.mvc.Controller;
 import play.mvc.Scope;
 
@@ -44,6 +47,7 @@ public class PaginationUtil extends Controller {
     public static List<Recette> getPagination(Scope.Params params, Alpha selected){
         int page = getPage(params);
         int max = getMaxPerPage(params);
+        Utilisateur loggedMember = Security.getLoggedMember();
         return Recette.find("lettre = ? ORDER BY titre ASC", selected).fetch(page, max);
     }
 
@@ -56,7 +60,8 @@ public class PaginationUtil extends Controller {
     public static List<Recette> getSearchPagination(Scope.Params params, String recherche){
         int page = getPage(params);
         int max = getMaxPerPage(params);
-        return Recette.find("titre ILIKE ? ORDER BY titre ASC", "%"+recherche+"%").fetch(page, max);
+        Utilisateur loggedMember = Security.getLoggedMember();
+        return Recette.find("titre LIKE ? ORDER BY titre ASC", "%"+recherche+"%").fetch(page, max);
     }
 
     /**
@@ -68,6 +73,7 @@ public class PaginationUtil extends Controller {
     public static long getSearchCount(Scope.Params params, String recherche){
         int page = getPage(params);
         int max = getMaxPerPage(params);
+        Utilisateur loggedMember = Security.getLoggedMember();
         return Recette.count("byTitreLike", "%" + recherche + "%");
     }
 
@@ -76,6 +82,7 @@ public class PaginationUtil extends Controller {
      * @return
      */
     public static long getTotalPagination(Scope.Params params, Alpha selected){
+        Utilisateur loggedMember = Security.getLoggedMember();
         return Recette.count("byLettre", selected);
     }
 
@@ -86,6 +93,7 @@ public class PaginationUtil extends Controller {
     public static List<Recette> getPaginationAll(Scope.Params params){
         int page = getPage(params);
         int max = getMaxPerPage(params);
+        Utilisateur loggedMember = Security.getLoggedMember();
         return Recette.find("ORDER BY titre ASC").fetch(page, max);
     }
 }

@@ -2,7 +2,11 @@ package controllers;
 
 import models.Alpha;
 import models.Recette;
+import models.Utilisateur;
+import play.Logger;
 import play.data.binding.Binder;
+import play.data.validation.*;
+import play.data.validation.Error;
 import play.db.Model;
 import play.exceptions.TemplateNotFoundException;
 import util.PaginationUtil;
@@ -31,6 +35,8 @@ public class Recettes extends CRUD {
         Constructor<?> constructor = type.entityClass.getDeclaredConstructor();
         constructor.setAccessible(true);
         Recette object = (Recette) constructor.newInstance();
+        Utilisateur loggedMember = Security.getLoggedMember();
+        object.auteur = loggedMember;
         Binder.bindBean(params.getRootParamNode(), "object", object);
         validation.valid(object);
         if (validation.hasErrors()) {
@@ -39,6 +45,8 @@ public class Recettes extends CRUD {
         }
         object.dateDeCreation = new Date();
         object._save();
+        loggedMember.recettes.add(object);
+        loggedMember.save();
         flash.success(play.i18n.Messages.get("recette.add", type.modelName));
         Application.index();
     }
