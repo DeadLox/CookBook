@@ -15,23 +15,22 @@ public class Application extends Controller {
 
     public static void index() {
         Alpha selected = getSelected();
-        List<Recette> recettes = PaginationUtil.getPagination(params, selected);
-        long total = PaginationUtil.getTotalPagination(params, selected);
+        Utilisateur loggedMember = Security.getLoggedMember();
+        Set<Recette> recettes = loggedMember.recetteSelector(selected);
 
         renderArgs.put("selected", selected);
         renderArgs.put("recettes", recettes);
-        renderArgs.put("total", total);
         render();
     }
 
     public static void all() {
-        List<Recette> recettes = PaginationUtil.getPaginationAll(params);
-        long total = Recette.count();
+        Utilisateur loggedMember = Security.getLoggedMember();
+        Set<Recette> recettes = new TreeSet<Recette>();
+        recettes.addAll(loggedMember.recettes);
 
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("selected", null);
         map.put("recettes", recettes);
-        map.put("total", total);
         renderTemplate("Application/index.html", map);
     }
 

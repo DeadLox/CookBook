@@ -16,7 +16,8 @@ import java.util.List;
  * Created by cleborgne on 19/12/13.
  */
 public class PaginationUtil extends Controller {
-    public static int MAXPERPAGE = 10;
+    private static Logger logger = Logger.getLogger(PaginationUtil.class);
+    public static int MAXPERPAGE = 5;
     public static int PAGE = 1;
     public static List<Integer> listMaxPerPage = Arrays.asList(10,20,50);
 

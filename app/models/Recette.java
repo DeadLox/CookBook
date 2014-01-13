@@ -8,9 +8,9 @@ import play.db.jpa.Model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
-import java.util.Comparator;
-import java.util.Date;
+import java.util.*;
 
 /**
  * Created with IntelliJ IDEA.
@@ -20,7 +20,7 @@ import java.util.Date;
  * To change this template use File | Settings | File Templates.
  */
 @Entity
-public class Recette extends Model implements Comparator {
+public class Recette extends Model implements Comparable<Recette> {
     @Unique
     @Required
     public String titre;
@@ -54,13 +54,7 @@ public class Recette extends Model implements Comparator {
     }
 
     @Override
-    public int compare(Object o, Object o2) {
-        Recette recette1 = (Recette) o;
-        Recette recette2 = (Recette) o2;
-        if (recette1 != null && recette2 != null) {
-            return compare(recette1, recette2);
-        } else {
-            return 0;
-        }
+    public int compareTo(Recette recette) {
+        return this.titre.compareTo(recette.titre);
     }
 }

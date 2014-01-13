@@ -2,6 +2,7 @@ package models;
 
 import controllers.CRUD;
 import org.apache.commons.lang.RandomStringUtils;
+import play.Logger;
 import play.data.validation.Email;
 import play.data.validation.Min;
 import play.data.validation.Required;
@@ -10,7 +11,9 @@ import play.db.jpa.Model;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import java.util.List;
 import java.util.Set;
+import java.util.TreeSet;
 
 /**
  * Created by DeadLox on 05/01/2014.
@@ -29,7 +32,7 @@ public class Utilisateur extends Model {
     public Integer etat;
     @CRUD.Hidden
     @ManyToMany
-    public Set<Recette> recettes;
+    public Set<Recette> recettes = new TreeSet<Recette>();
     @ManyToOne
     public Role role;
 
@@ -41,6 +44,21 @@ public class Utilisateur extends Model {
     public Utilisateur(){
         this.etat = 0;
         this.activationCode = RandomStringUtils.randomAlphanumeric(20).toUpperCase();
+    }
+
+    /**
+     * Retourne une collection de recette correspondant à la lettre
+     * @param selected
+     * @return
+     */
+    public Set<Recette> recetteSelector(Alpha selected){
+        Set<Recette> recettesSelected = new TreeSet<Recette>();
+        for (Recette recette : this.recettes){
+            if (recette.lettre.equals(selected)) {
+                recettesSelected.add(recette);
+            }
+        }
+        return recettesSelected;
     }
 
     /**
