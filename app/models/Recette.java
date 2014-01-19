@@ -37,6 +37,7 @@ public class Recette extends Model implements Comparable<Recette> {
 
     public Recette() {
         this.lettre = Alpha.A;
+        this.utilisateurs = new TreeSet<Utilisateur>();
     }
 
     public String toString(){

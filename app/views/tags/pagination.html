@@ -11,15 +11,15 @@
     #{if nbPage > 1}
         <ul class="pagination">
             #{if pageSelected > 1}
-                <li><a href="" onclick="changePage(1);return false;">&{'first.page'}</a></li>
-                <li><a href="" onclick="changePage(${pageSelected-1});return false;">&{'precedent'}</a></li>
+                <li><a href="${rechercheParam}1">&{'first.page'}</a></li>
+                <li><a href="${rechercheParam}${pageSelected-1}">&{'precedent'}</a></li>
             #{/if}
             #{list items:1..nbPage, as:'page'}
-                <li class="#{if pageSelected == page}active#{/if}"><a href="" onclick="changePage(${page});return false;">${page}</a></li>
+                <li class="#{if pageSelected == page}active#{/if}"><a href="${rechercheParam}${page}">${page}</a></li>
             #{/list}
             #{if pageSelected < nbPage}
-                <li><a href="" onclick="changePage(${pageSelected+1});return false;">&{'suivant'}</a></li>
-                <li><a href="" onclick="changePage(${nbPage});return false;">&{'last.page'}</a></li>
+                <li><a href="${rechercheParam}${pageSelected+1}">&{'suivant'}</a></li>
+                <li><a href="${rechercheParam}${nbPage}">&{'last.page'}</a></li>
             #{/if}
         </ul>
     #{/if}
@@ -36,9 +36,5 @@
                 $(this).parent().submit();
              });
         });
-
-        function changePage(page){
-            console.log(page);
-        }
     </script>
 </div>

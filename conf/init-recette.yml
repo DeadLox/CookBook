@@ -21,3 +21,27 @@ Recette(recette5):
   titre: Recette 5
   adresse: http://www.google.fr
   lettre: 5
+Recette(recette6):
+  titre: Recette 6
+  adresse: http://www.google.fr
+  lettre: 6
+Recette(recette7):
+  titre: Recette 7
+  adresse: http://www.google.fr
+  lettre: 7
+Recette(recette8):
+  titre: Recette 8
+  adresse: http://www.google.fr
+  lettre: 8
+Recette(recette9):
+  titre: Recette 9
+  adresse: http://www.google.fr
+  lettre: 9
+Recette(recette10):
+  titre: Recette 10
+  adresse: http://www.google.fr
+  lettre: 10
+Recette(recette11):
+  titre: Recette 11
+  adresse: http://www.google.fr
+  lettre: 11

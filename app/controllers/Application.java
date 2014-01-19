@@ -13,24 +13,17 @@ import util.PaginationUtil;
 public class Application extends Controller {
     public static Alpha alphaDefaut = Alpha.A;
 
-    public static void index() {
-        Alpha selected = getSelected();
-        Utilisateur loggedMember = Security.getLoggedMember();
-        Set<Recette> recettes = loggedMember.recetteSelector(selected);
-
-        renderArgs.put("selected", selected);
-        renderArgs.put("recettes", recettes);
-        render();
-    }
-
+    /**
+     * Affiche toutes les recettes de l'utilisateur
+     */
     public static void all() {
         Utilisateur loggedMember = Security.getLoggedMember();
-        Set<Recette> recettes = new TreeSet<Recette>();
-        recettes.addAll(loggedMember.recettes);
+        List<Recette> recettes = PaginationUtil.getPaginationAll(params);
 
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("selected", null);
         map.put("recettes", recettes);
+        map.put("total", loggedMember.recettes.size());
         renderTemplate("Application/lettre.html", map);
     }
 
@@ -47,7 +40,7 @@ public class Application extends Controller {
     }
 
     /**
-     * Sélectionne une lettre
+     * Affiche la liste des recettes correspondant à la lettre
      * @param lettreSelected
      */
     public static void lettre(Alpha lettreSelected){
@@ -55,10 +48,11 @@ public class Application extends Controller {
 
         Alpha selected = getSelected();
         Utilisateur loggedMember = Security.getLoggedMember();
-        Set<Recette> recettes = loggedMember.recetteSelector(selected);
+        List<Recette> recettes = PaginationUtil.getPagination(params, selected);
 
         renderArgs.put("selected", selected);
         renderArgs.put("recettes", recettes);
+        renderArgs.put("total", PaginationUtil.getPaginationCount(selected));
         render();
     }
 
@@ -79,8 +73,8 @@ public class Application extends Controller {
      * @param recherche
      */
     public static void recherche(String recherche){
-        Set<Recette> recettes = PaginationUtil.getSearchPagination(params, recherche);
-        long total = PaginationUtil.getSearchCount(params, recherche);
+        List<Recette> recettes = PaginationUtil.getSearchPagination(params, recherche);
+        long total = PaginationUtil.getSearchCount(recherche);
 
         Alpha selected = getSelected();
 

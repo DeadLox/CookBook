@@ -37,6 +37,7 @@ public class Recettes extends CRUD {
         Recette object = (Recette) constructor.newInstance();
         Utilisateur loggedMember = Security.getLoggedMember();
         object.auteur = loggedMember;
+        object.utilisateurs.add(loggedMember);
         Binder.bindBean(params.getRootParamNode(), "object", object);
         validation.valid(object);
         if (validation.hasErrors()) {
@@ -44,9 +45,7 @@ public class Recettes extends CRUD {
             render("Recettes/blank.html", type, object);
         }
         object.dateDeCreation = new Date();
-        object._save();
-        loggedMember.recettes.add(object);
-        loggedMember.save();
+        object.save();
         flash.success(play.i18n.Messages.get("recette.add", object.titre));
         Application.all();
     }

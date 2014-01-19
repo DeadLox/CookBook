@@ -17,7 +17,7 @@ public class PaginationUtil extends Controller {
     private static Logger logger = Logger.getLogger(PaginationUtil.class);
     public static int MAXPERPAGE = 5;
     public static int PAGE = 1;
-    public static List<Integer> listMaxPerPage = Arrays.asList(10,20,50);
+    public static List<Integer> listMaxPerPage = Arrays.asList(5,10,20,50);
 
     private static int getPage(Scope.Params params){
         return (params.get("page") != null)? Integer.parseInt(params.get("page")) : PAGE;
@@ -47,7 +47,16 @@ public class PaginationUtil extends Controller {
         int page = getPage(params);
         int max = getMaxPerPage(params);
         Utilisateur loggedMember = Security.getLoggedMember();
-        return Recette.find("lettre = ? ORDER BY titre ASC", selected).fetch(page, max);
+        return Recette.find("SELECT r FROM Recette AS r INNER JOIN r.utilisateurs AS u WHERE r.lettre = ? AND ? IN u ORDER BY titre ASC", selected, loggedMember).fetch(page, max);
+    }
+
+    /**
+     * Retourne une liste de recette avec la pagination
+     * @return
+     */
+    public static long getPaginationCount(Alpha selected){
+        Utilisateur loggedMember = Security.getLoggedMember();
+        return Recette.find("SELECT r FROM Recette AS r INNER JOIN r.utilisateurs AS u WHERE r.lettre = ? AND ? IN u", selected, loggedMember).fetch().size();
     }
 
     /**
@@ -56,31 +65,21 @@ public class PaginationUtil extends Controller {
      * @param recherche
      * @return
      */
-    public static Set<Recette> getSearchPagination(Scope.Params params, String recherche){
+    public static List<Recette> getSearchPagination(Scope.Params params, String recherche){
         int page = getPage(params);
         int max = getMaxPerPage(params);
         Utilisateur loggedMember = Security.getLoggedMember();
-        Set<Recette> recettes = loggedMember.recettes;
-        Set<Recette> recettesFound = new TreeSet<Recette>();
-        for (Recette recette : recettes) {
-            if (recette.titre.contains(recherche)) {
-                recettesFound.add(recette);
-            }
-        }
-        return recettesFound;
+        return Recette.find("SELECT r FROM Recette AS r INNER JOIN r.utilisateurs AS u WHERE lower(r.titre) LIKE ? AND ? IN u ORDER BY titre ASC", '%'+recherche.toLowerCase()+'%', loggedMember).fetch(page, max);
     }
 
     /**
      * Retourne le nombre total de recettes trouvées lors d'une recherche
-     * @param params
      * @param recherche
      * @return
      */
-    public static long getSearchCount(Scope.Params params, String recherche){
-        int page = getPage(params);
-        int max = getMaxPerPage(params);
+    public static long getSearchCount(String recherche){
         Utilisateur loggedMember = Security.getLoggedMember();
-        return Recette.count("byTitreLike", "%" + recherche + "%");
+        return Recette.find("SELECT r FROM Recette AS r INNER JOIN r.utilisateurs AS u WHERE lower(r.titre) LIKE ? AND ? IN u ORDER BY titre ASC", '%'+recherche.toLowerCase()+'%', loggedMember).fetch().size();
     }
 
     /**
@@ -89,7 +88,7 @@ public class PaginationUtil extends Controller {
      */
     public static long getTotalPagination(Scope.Params params, Alpha selected){
         Utilisateur loggedMember = Security.getLoggedMember();
-        return Recette.count("byLettre", selected);
+        return Recette.count("SELECT r FROM Recette AS r INNER JOIN r.utilisateurs AS u WHERE lettre = ? AND ? IN u ORDER BY titre ASC", selected, loggedMember);
     }
 
     /**
@@ -100,6 +99,6 @@ public class PaginationUtil extends Controller {
         int page = getPage(params);
         int max = getMaxPerPage(params);
         Utilisateur loggedMember = Security.getLoggedMember();
-        return Recette.find("ORDER BY titre ASC").fetch(page, max);
+        return Recette.find("SELECT r FROM Recette AS r INNER JOIN r.utilisateurs AS u WHERE ? IN u ORDER BY titre ASC", loggedMember).fetch(page, max);
     }
 }
