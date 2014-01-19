@@ -14,7 +14,25 @@ GET     /changlog                               Application.changelog
 GET     /activation/{email}/{code}              Security.activation
 
 # Import CRUD routes
-*     /admin                                    module:crud
+#*     /admin                                    module:crud
+
+# CRUD
+# Recettes
+GET       /admin/recettes/new                               Recettes.blank
+GET       /admin/recettes/{id}                              Recettes.show
+GET       /admin/recettes/{id}/edit                         Recettes.edit
+POST      /admin/recettes                                   Recettes.create
+POST      /admin/recettes/{id}                              Recettes.save
+DELETE    /admin/recettes/{id}                              Recettes.delete
+# Utilisateurs
+GET       /admin/utilisateurs                               Utilisateurs.list
+GET       /admin/utilisateurs/new                           Utilisateurs.blank
+GET       /admin/utilisateurs/{id}                          Utilisateurs.show
+GET       /admin/utilisateurs/{id}/{field}                  Utilisateurs.attachment
+GET       /admin/utilisateurs/{id}/edit                     Utilisateurs.edit
+POST      /admin/utilisateurs                               Utilisateurs.create
+POST      /admin/utilisateurs/{id}                          Utilisateurs.save
+DELETE    /admin/utilisateurs/{id}                          Utilisateurs.delete
 
 # Module Secure
 *       /                                       module:secure

@@ -1,23 +1,23 @@
-application.titre       =CookBook
-application.version     =v1.2
-application.changelog   =Changelog:
+application.titre       = CookBook
+application.version     = v1.2
+application.changelog   = Changelog:
 
 # Recette
-titre               =Titre
-adresse             =Adresse
-lettre              =Lettre
+titre               = Titre
+adresse             = Adresse
+lettre              = Lettre
 
-ajouter.recette     =Ajouter une recette
-recette.ajouter     =Ajouter une nouvelle recette
-recette.modifier    =Modifier
-recette.supprimer   =Supprimer
-recette.annuler     =Annuler
-recette.empty       =Aucune recette
+ajouter.recette     = Ajouter une recette
+recette.ajouter     = Ajouter une nouvelle recette
+recette.modifier    = Modifier
+recette.supprimer   = Supprimer
+recette.annuler     = Annuler
+recette.empty       = Aucune recette
 
 # Validation
-recette.supprimer.success   =La recette %1$s a été supprimée.
-recette.add                 =La recette %1$s a été ajoutée.
-recette.edit                =La recette %1$s a été modifiée.
+recette.supprimer.success   = La recette %1$s a été supprimée.
+recette.add                 = La recette %1$s a été ajoutée.
+recette.edit                = La recette %1$s a été modifiée.
 
 # Formulaire
 recette.ajouter.title       = Ajouter une nouvelle recette
@@ -25,9 +25,9 @@ recette.modifier.title      = Modifier une recette
 recette.save                = Enregistrer
 
 # Recherche
-rechercher.texte    =Votre recherche...
-rechercher.btn      =Rechercher
-recherche           =Recherche
+rechercher.texte    = Votre recherche...
+rechercher.btn      = Rechercher
+recherche           = Recherche
 
 #Pagination
 tout                = Tout
@@ -45,22 +45,22 @@ logout              = Se déconnecter
 register            = Créer un compte
 login.title         = CookBook
 # Inscription
-register.title      = Inscription
-register.create     = Un email d'activation vous a été envoyé.
-register.email.exist= Cet email existe déjà, veuillez en choisir un autre.
-register.email.empty= Veuillez remplir l'email
-register.email.valid= L'email n'est pas valide.
-register.password.valid= Le mot de passe doit faire 6 caractères minimum.
-register.email.subject= Activation de votre compte CookBook
-register.email.message= Pour activer votre compte, cliquer sur le lien suivant: %1$s
+register.title              = Inscription
+register.create             = Un email d'activation vous a été envoyé.
+register.email.exist        = Cet email existe déjà, veuillez en choisir un autre.
+register.email.empty        = Veuillez remplir l'email
+register.email.valid        = L'email n'est pas valide.
+register.password.valid     = Le mot de passe doit faire 6 caractères minimum.
+register.email.subject      = Activation de votre compte CookBook
+register.email.message      = Pour activer votre compte, cliquer sur le lien suivant: <a href="%1$s">Activer votre compte CookBook</a>
 
 application.login.bienvenue = Bienvenue:
-secure.username=Email:
-secure.password=Mot de passe:
-secure.remember=Rester connecté ?
-secure.signin= Se connecter
-secure.error= Oops, email ou mot de passe incorrecte
-secure.logout=Vous avez été déconnecté.
+secure.username             = Email:
+secure.password             = Mot de passe:
+secure.remember             = Rester connecté ?
+secure.signin               = Se connecter
+secure.error                = Oops, email ou mot de passe incorrecte
+secure.logout               = Vous avez été déconnecté.
 
 # Activation
 application.activation.success                  = Votre a été activé, vous pouvez désormais vous connecter

@@ -9,6 +9,7 @@ import play.data.validation.*;
 import play.data.validation.Error;
 import play.db.Model;
 import play.exceptions.TemplateNotFoundException;
+import play.mvc.With;
 import util.PaginationUtil;
 
 import java.lang.reflect.Constructor;
@@ -21,6 +22,7 @@ import java.util.*;
  * Time: 15:03
  * To change this template use File | Settings | File Templates.
  */
+@With(Secure.class)
 public class Recettes extends CRUD {
     private static CRUD.ObjectType type = CRUD.ObjectType.get(Recettes.class);
 
