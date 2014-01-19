@@ -47,8 +47,8 @@ public class Recettes extends CRUD {
         object._save();
         loggedMember.recettes.add(object);
         loggedMember.save();
-        flash.success(play.i18n.Messages.get("recette.add", type.modelName));
-        Application.index();
+        flash.success(play.i18n.Messages.get("recette.add", object.titre));
+        Application.all();
     }
 
     public static void show(long id){
@@ -68,6 +68,6 @@ public class Recettes extends CRUD {
         object.dateDeModification = new Date();
         object._save();
         flash.success(play.i18n.Messages.get("recette.edit", type.modelName));
-        Application.index();
+        Application.all();
     }
 }

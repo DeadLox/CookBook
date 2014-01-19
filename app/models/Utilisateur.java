@@ -2,16 +2,17 @@ package models;
 
 import controllers.CRUD;
 import org.apache.commons.lang.RandomStringUtils;
-import play.Logger;
+
 import play.data.validation.Email;
 import play.data.validation.Min;
 import play.data.validation.Required;
 import play.db.jpa.Model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import java.util.List;
+
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -31,8 +32,8 @@ public class Utilisateur extends Model {
     @CRUD.Hidden
     public Integer etat;
     @CRUD.Hidden
-    @ManyToMany
-    public Set<Recette> recettes = new TreeSet<Recette>();
+    @ManyToMany(mappedBy = "utilisateurs")
+    public Set<Recette> recettes;
     @ManyToOne
     public Role role;
 
@@ -43,6 +44,7 @@ public class Utilisateur extends Model {
      */
     public Utilisateur(){
         this.etat = 0;
+        this.recettes = new TreeSet<Recette>();
         this.activationCode = RandomStringUtils.randomAlphanumeric(20).toUpperCase();
     }
 

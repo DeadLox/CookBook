@@ -1,5 +1,6 @@
 package controllers;
 
+import models.Role;
 import models.Utilisateur;
 import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.SimpleEmail;
@@ -8,6 +9,11 @@ import play.data.validation.Required;
 import play.data.validation.Validation;
 import play.i18n.Messages;
 import play.libs.Codec;
+import play.libs.Mail;
+import play.mvc.Router;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created with IntelliJ IDEA.
@@ -27,7 +33,6 @@ public class Security extends Secure.Security {
      * @throws Throwable
      */
     public static void register(@Required String email, @Required String password) throws Throwable {
-        logger.info(email +" "+ password);
         if (email != null && password != null) {
             boolean error = false;
             // Vérifie l'email et le password
@@ -55,12 +60,17 @@ public class Security extends Secure.Security {
             if (error) {
                 render();
             }
+            // Récupère le rôle Membre
+            Role membreRole = Role.find("byLibelle", "membre").first();
+
             // On créé l'utilisateur
             Utilisateur user = new Utilisateur();
             user.email = email;
-            user.password = password;
+            user.password = Codec.hexMD5(password);
+            user.role = membreRole;
             user.save();
 
+            // Envoi l'email d'activation du compte
             sendActivationMail(user);
 
             flash.put("success", Messages.get("register.create"));
@@ -69,17 +79,34 @@ public class Security extends Secure.Security {
         render();
     }
 
-    public static void sendActivationMail(Utilisateur user){
+    /**
+     * Envoi du mail d'activation
+     * @param user
+     */
+    private static void sendActivationMail(Utilisateur user){
         try {
             SimpleEmail email = new SimpleEmail();
             email.setFrom(emailFrom);
             email.addTo(user.email);
             email.setSubject(Messages.get("register.email.subject"));
-            email.setMsg(Messages.get("register.email.message"));
-            //Mail.send(email);
+            email.setMsg(Messages.get("register.email.message", generateActivationLink(user)));
+            Mail.send(email);
+            logger.info(generateActivationLink(user));
         } catch (EmailException e) {
             logger.warn("L'email n'a pas pu être envoyé");
         }
+    }
+
+    /**
+     * Retourne le lien vers la page d'activation
+     * @param user
+     * @return
+     */
+    private static String generateActivationLink(Utilisateur user){
+        Map<String, Object> routeArgs = new HashMap<String, Object>();
+        routeArgs.put("email", user.email);
+        routeArgs.put("code", user.activationCode);
+        return Router.getFullUrl("Security.activation", routeArgs);
     }
 
     /**

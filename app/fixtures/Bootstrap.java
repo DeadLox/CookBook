@@ -40,11 +40,9 @@ public class Bootstrap extends Job {
                 for (Recette recette : recettes) {
                     // On met maryse en Auteur
                     recette.auteur = maryse;
+                    recette.utilisateurs.add(maryse);
                     recette.save();
                 }
-                // On  ajoute cette recette à la liste de maryse
-                maryse.recettes.addAll(recettes);
-                maryse.save();
             }
         }
     }

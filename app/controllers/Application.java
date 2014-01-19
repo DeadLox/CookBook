@@ -31,7 +31,7 @@ public class Application extends Controller {
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("selected", null);
         map.put("recettes", recettes);
-        renderTemplate("Application/index.html", map);
+        renderTemplate("Application/lettre.html", map);
     }
 
     /**
@@ -52,14 +52,25 @@ public class Application extends Controller {
      */
     public static void lettre(Alpha lettreSelected){
         session.put("selected", lettreSelected);
-        index();
+
+        Alpha selected = getSelected();
+        Utilisateur loggedMember = Security.getLoggedMember();
+        Set<Recette> recettes = loggedMember.recetteSelector(selected);
+
+        renderArgs.put("selected", selected);
+        renderArgs.put("recettes", recettes);
+        render();
     }
 
     public static void supprimer(Long id){
         Recette recette = Recette.findById(id);
-        flash.put("success", Messages.get("recette.supprimer.success", recette));
+        for (Utilisateur user : recette.utilisateurs) {
+            user.recettes.remove(recette);
+            user.save();
+        }
+        flash.put("error", Messages.get("recette.supprimer.success", recette));
         recette.delete();
-        index();
+        all();
     }
 
     /**
@@ -68,7 +79,7 @@ public class Application extends Controller {
      * @param recherche
      */
     public static void recherche(String recherche){
-        List<Recette> recettes = PaginationUtil.getSearchPagination(params, recherche);
+        Set<Recette> recettes = PaginationUtil.getSearchPagination(params, recherche);
         long total = PaginationUtil.getSearchCount(params, recherche);
 
         Alpha selected = getSelected();

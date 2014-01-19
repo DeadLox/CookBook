@@ -44,12 +44,16 @@ signin              = Se connecter
 logout              = Se déconnecter
 register            = Créer un compte
 login.title         = CookBook
+# Inscription
 register.title      = Inscription
 register.create     = Un email d'activation vous a été envoyé.
 register.email.exist= Cet email existe déjà, veuillez en choisir un autre.
 register.email.empty= Veuillez remplir l'email
 register.email.valid= L'email n'est pas valide.
 register.password.valid= Le mot de passe doit faire 6 caractères minimum.
+register.email.subject= Activation de votre compte CookBook
+register.email.message= Pour activer votre compte, cliquer sur le lien suivant: %1$s
+
 application.login.bienvenue = Bienvenue:
 secure.username=Email:
 secure.password=Mot de passe:

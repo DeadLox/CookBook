@@ -6,10 +6,7 @@ import play.data.validation.Required;
 import play.data.validation.Unique;
 import play.db.jpa.Model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 import java.util.*;
 
 /**
@@ -30,6 +27,8 @@ public class Recette extends Model implements Comparable<Recette> {
     public Alpha lettre;
     @OneToOne
     public Utilisateur auteur;
+    @ManyToMany
+    public Set<Utilisateur> utilisateurs;
     @Required
     @Column(columnDefinition="Integer default '0'")
     public int note;

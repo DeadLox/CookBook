@@ -8,9 +8,7 @@ import org.apache.log4j.Logger;
 import play.mvc.Controller;
 import play.mvc.Scope;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by cleborgne on 19/12/13.
@@ -58,11 +56,18 @@ public class PaginationUtil extends Controller {
      * @param recherche
      * @return
      */
-    public static List<Recette> getSearchPagination(Scope.Params params, String recherche){
+    public static Set<Recette> getSearchPagination(Scope.Params params, String recherche){
         int page = getPage(params);
         int max = getMaxPerPage(params);
         Utilisateur loggedMember = Security.getLoggedMember();
-        return Recette.find("titre LIKE ? ORDER BY titre ASC", "%"+recherche+"%").fetch(page, max);
+        Set<Recette> recettes = loggedMember.recettes;
+        Set<Recette> recettesFound = new TreeSet<Recette>();
+        for (Recette recette : recettes) {
+            if (recette.titre.contains(recherche)) {
+                recettesFound.add(recette);
+            }
+        }
+        return recettesFound;
     }
 
     /**

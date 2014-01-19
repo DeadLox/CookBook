@@ -3,8 +3,7 @@
 # ~~~~
 
 # Home page
-GET     /                                       Application.index
-GET     /all                                    Application.all
+GET     /                                       Application.all
 GET     /lettre/{lettreSelected}                Application.lettre
 POST    /ajouter                                Application.ajouter
 GET     /modifier/{id}                          Application.modifier
