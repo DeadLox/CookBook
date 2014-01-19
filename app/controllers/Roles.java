@@ -1,5 +1,6 @@
 package controllers;
 
+import models.Role;
 import play.mvc.With;
 
 /**
@@ -8,5 +9,5 @@ import play.mvc.With;
 
 @With(Secure.class)
 @Check("Administrateur")
-public class Utilisateurs extends CRUD {
+public class Roles extends CRUD {
 }

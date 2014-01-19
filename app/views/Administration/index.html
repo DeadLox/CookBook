@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Liste des recettes</title>
+</head>
+<body>
+    <h1><a href="@{Application.all()}">&{'application.titre'}</a></h1>
+    <ul>
+        <li><a href="@{Utilisateurs.list()}">Adminstration utilisateur</a></li>
+        <li><a href="@{Roles.list()}">Adminstration rôles</a></li>
+        <li><a href="@{Administration.generateList()}">Liste des recettes</a></li>
+    </ul>
+</body>
+</html>

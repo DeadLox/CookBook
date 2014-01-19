@@ -13,8 +13,9 @@ GET     /recherche                              Application.recherche
 GET     /changlog                               Application.changelog
 GET     /activation/{email}/{code}              Security.activation
 
-# Import CRUD routes
-#*     /admin                                    module:crud
+# Adminstration
+GET     /admin                                  Administration.index
+GET     /admin/list                             Administration.generateList
 
 # CRUD
 # Recettes
@@ -33,6 +34,15 @@ GET       /admin/utilisateurs/{id}/edit                     Utilisateurs.edit
 POST      /admin/utilisateurs                               Utilisateurs.create
 POST      /admin/utilisateurs/{id}                          Utilisateurs.save
 DELETE    /admin/utilisateurs/{id}                          Utilisateurs.delete
+# Rôles
+GET       /admin/roles                                      Roles.list
+GET       /admin/roles/new                                  Roles.blank
+GET       /admin/roles/{id}                                 Roles.show
+GET       /admin/roles/{id}/{field}                         Roles.attachment
+GET       /admin/roles/{id}/edit                            Roles.edit
+POST      /admin/roles                                      Roles.create
+POST      /admin/roles/{id}                                 Roles.save
+DELETE    /admin/roles/{id}                                 Roles.delete
 
 # Module Secure
 *       /                                       module:secure

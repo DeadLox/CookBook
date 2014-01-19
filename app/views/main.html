@@ -20,6 +20,9 @@
 
             <div class="infoMember">
                 <a class="btn btn-danger btn-logout" href="@{Secure.logout()}"><span class="glyphicon glyphicon-log-out"></span> &{'logout'}</a>
+                #{if loggedMember.role.libelle.equals("Administrateur")}
+                    <a class="btn btn-warning btn-admin" href="@{Administration.index()}">&{'application.administration.user'}</a>
+                #{/if}
                 <span class="userName">&{'application.login.bienvenue'} <strong>${loggedMember.email}</strong></span>
             </div>
 

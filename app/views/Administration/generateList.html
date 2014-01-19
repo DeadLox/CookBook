@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Liste des recettes</title>
+</head>
+<body>
+    #{list items:recettes, as:'recette'}
+        <div>
+            <div>${recette.titre}</div>
+        </div>
+    #{/list}
+</body>
+</html>

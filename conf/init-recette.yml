@@ -1,47 +1,107 @@
 ###########################
 # Recette
 ###########################
-Recette(recette1):
-  titre: Recette 1
+Recette(1):
+  titre: bisque de crevettes
+  adresse: http://www.recettes-economiques.com/recettes/veloute-ou-bisque-de-crevettes-au-thermomix/
+  lettre: B
+Recette(2):
+  titre: buche de noel aux fruits
   adresse: http://www.google.fr
-  lettre: 1
-Recette(recette2):
-  titre: Recette 2
-  adresse: http://www.google.fr
-  lettre: 2
-Recette(recette3):
-  titre: Recette 3
-  adresse: http://www.google.fr
-  lettre: 3
-Recette(recette4):
-  titre: Recette 4
-  adresse: http://www.google.fr
-  lettre: 4
-Recette(recette5):
-  titre: Recette 5
-  adresse: http://www.google.fr
-  lettre: 5
-Recette(recette6):
-  titre: Recette 6
-  adresse: http://www.google.fr
-  lettre: 6
-Recette(recette7):
-  titre: Recette 7
-  adresse: http://www.google.fr
-  lettre: 7
-Recette(recette8):
-  titre: Recette 8
-  adresse: http://www.google.fr
-  lettre: 8
-Recette(recette9):
-  titre: Recette 9
-  adresse: http://www.google.fr
-  lettre: 9
-Recette(recette10):
-  titre: Recette 10
-  adresse: http://www.google.fr
-  lettre: 10
-Recette(recette11):
-  titre: Recette 11
-  adresse: http://www.google.fr
-  lettre: 11
+  lettre: B
+Recette(3):
+  titre: buche patissiere à la vanille
+  adresse: http://cuisine.journaldesfemmes.com/recette/349949-buche-patissiere-a-la-vanille-et-aux-amandes-grillees
+  lettre: B
+Recette(4):
+  titre: cake au citron
+  adresse: http://www.lesfoodies.com/kekeli/print/recette/cake-au-citron-19
+  lettre: C
+Recette(5):
+  titre: cake au citron de sophie
+  adresse: http://www.popotestories.fr/2009/08/cake-au-citron-de-sophie-dudemaine/
+  lettre: C
+Recette(6):
+  titre: choux de bruxelles
+  adresse: http://www.france3.fr/emissions/meteo-a-la-carte/recettes/recette-de-saison-gratin-de-choux-de-bruxelles-a-la-normande_156510
+  lettre: C
+Recette(7):
+  titre: creme brulée légère
+  adresse: http://cuisinedesylvmel.canalblog.com/archives/2013/06/24/27495243.html
+  lettre: C
+Recette(8):
+  titre: creme légere au chocolat
+  adresse: http://cuisinedesylvmel.canalblog.com/archives/2013/12/18/28671408.html
+  lettre: C
+Recette(9):
+  titre: flan au chou-fleur
+  adresse: http://www.elle.fr/Elle-a-Table/Recettes-de-cuisine/flan-au-chou-fleur-551007
+  lettre: F
+Recette(10):
+  titre: flan aux poires
+  adresse: http://www.france3.fr/emissions/meteo-a-la-carte/recettes/recette-de-saison-flan-aux-poires_149177
+  lettre: F
+Recette(11):
+  titre: foie gras poele aux topinambours
+  adresse: http://www.france3.fr/emissions/meteo-a-la-carte/recettes/recette-de-saison-foie-gras-poele-et-puree-de-topinambours_158462
+  lettre: F
+Recette(12):
+  titre: galette des rois
+  adresse: http://www.vorwerk.com/fr/thermomix/pdf/weekly_menu/0110_galette_des_rois_thermomix.pdf
+  lettre: G
+Recette(13):
+  titre: gateau yaourt
+  adresse: http://www.marmiton.org/recettes/recette_gateau-au-yaourt_12719.aspx
+  lettre: G
+Recette(14):
+  titre: gratin dauphinois
+  adresse: http://www.france3.fr/emissions/meteo-a-la-carte/recettes/recette-de-saison-le-veritable-gratin-dauphinois_157056
+  lettre: G
+Recette(15):
+  titre: huitres au champagne
+  adresse: http://www.enviedebienmanger.fr/fiche-recette/recette-huitres-au-champagne
+  lettre: H
+Recette(16):
+  titre: macarons au chocolat
+  adresse: http://www.youtube.com/watch?v=22RJnLG50OY
+  lettre: M
+Recette(17):
+  titre: macarons au thermomix
+  adresse: http://www.lesfoodies.com/feelili/recette/macarons-aux-framboises-recette-facile-pour-debutant-avec-ou-sans-thermomix-tm31
+  lettre: M
+Recette(18):
+  titre: macarons chocolat c.morel
+  adresse: http://www.youtube.com/watch?v=G4OkfhA0uK8
+  lettre: M
+Recette(19):
+  titre: magrets de canard sauce au miel et vinaigre balsamique
+  adresse: http://cuisine.journaldesfemmes.com/recette/329829-magret-de-canard-sauce-au-miel
+  lettre: M
+Recette(20):
+  titre: mousse au chocolat thermomix
+  adresse: http://www.recettes-economiques.com/recettes/mousse-au-chocolat-extra-au-thermomix/
+  lettre: M
+Recette(21):
+  titre: pain cocotte
+  adresse: http://www.youtube.com/watch?v=dcaYMOH6eZo
+  lettre: P
+Recette(22):
+  titre: pains aux raisins
+  adresse: http://www.cuisineaz.com/recettes/pains-aux-raisins-35623.aspx
+  lettre: P
+Recette(23):
+  titre: potée au chou
+  adresse: http://www.youtube.com/watch?v=pl87tvXclZ4
+  lettre: P
+Recette(24):
+  titre: quatre-quart aux pommes
+  adresse: http://cuisine.journaldesfemmes.com/recette/304359-quatre-quarts-aux-pommes
+  lettre: Q
+Recette(25):
+  titre: verrines de betteraves
+  adresse: http://espace-recettes.fr/recettes/verrines-de-betteraves/331715
+  lettre: V
+Recette(26):
+  titre: verrines mousse de saumon
+  adresse: http://espace-recettes.fr/recettes/sp%C3%A9cial-f%C3%AAtes-mousse-de-saumon-fum%C3%A9-en-verrine-ap%C3%A9ritif/27390
+  lettre: V

@@ -140,7 +140,7 @@ public class Security extends Secure.Security {
      */
     public static boolean check(String profile) {
         Utilisateur user = Utilisateur.find("byEmail", connected()).first();
-        if (user.role.equals(profile)) {
+        if (user.role.libelle.equalsIgnoreCase(profile)) {
             return true;
         }
         return false;
