@@ -34,7 +34,7 @@ public class Bootstrap extends Job {
         if (Utilisateur.count() == 0) {
             logger.warn("Load Utilisateurs");
             Fixtures.loadModels("init-user.yml");
-            Fixtures.deleteDatabase();
+            //Fixtures.deleteDatabase();
             Utilisateur maryse = Utilisateur.find("byEmail", "mlebor@hotmail.fr").first();
             if (maryse != null) {
                 List<Recette> recettes = Recette.findAll();

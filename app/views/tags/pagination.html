@@ -25,14 +25,13 @@
     #{/if}
     <form action="${request.url}" method="GET">
         <input type="hidden" name="recherche" value="${recherche}" />
-        <input type="hidden" name="page" value="${pageSelected}" />
+        <input type="hidden" name="page" value="1" />
         #{select id:'paginationMax', name:'max', items:util.PaginationUtil.listMaxPerPage, class:'form-control', value:util.PaginationUtil.getMaxPerPage(params)/}
     </form>
     <script>
         $(document).ready(function(){
              // Détecte le changement de limite de pagination et soumet le formulaire
              $('#paginationMax').change(function(){
-                console.log($(this).val());
                 $(this).parent().submit();
              });
         });

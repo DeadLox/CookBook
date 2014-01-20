@@ -14,7 +14,7 @@ Utilisateur(admin):
   email: dead.lox@hotmail.fr
   password: 21232f297a57a5a743894a0e4a801fc3
   role: administrateur
-  etat: 0
+  etat: 1
 Utilisateur(maryse):
   email: mlebor@hotmail.fr
   password: dda48d6d9a9f7cb49963c5010dbee216
