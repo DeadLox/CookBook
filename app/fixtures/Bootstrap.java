@@ -27,10 +27,6 @@ public class Bootstrap extends Job {
             logger.warn("Load recetttes");
             Fixtures.loadModels("init-recette.yml");
         }
-        if (Role.count() == 0) {
-            logger.warn("Load Rôles");
-            //Fixtures.loadModels("init-role.yml");
-        }
         if (Utilisateur.count() == 0) {
             logger.warn("Load Utilisateurs");
             Fixtures.loadModels("init-user.yml");
