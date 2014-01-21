@@ -12,6 +12,7 @@ import play.libs.Codec;
 import play.libs.Mail;
 import play.mvc.Router;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -61,7 +62,7 @@ public class Security extends Secure.Security {
                 render();
             }
             // Récupère le rôle Membre
-            Role membreRole = Role.find("byLibelle", "membre").first();
+            Role membreRole = Role.find("byLibelle", "Membre").first();
 
             // On créé l'utilisateur
             Utilisateur user = new Utilisateur();
@@ -164,6 +165,7 @@ public class Security extends Secure.Security {
                 if (code.equals(user.activationCode)) {
                     // On active le compte
                     user.etat = 1;
+                    user.dateActivation = new Date();
                     user.save();
                     flash.put("success", Messages.get("application.activation.success"));
                 } else {

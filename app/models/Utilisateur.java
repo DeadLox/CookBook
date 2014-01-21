@@ -13,6 +13,7 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
+import java.util.Date;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -36,6 +37,8 @@ public class Utilisateur extends Model {
     public Set<Recette> recettes;
     @ManyToOne
     public Role role;
+    public Date dateCreation;
+    public Date dateActivation;
 
     /**
      * Constructeur
@@ -44,6 +47,7 @@ public class Utilisateur extends Model {
      */
     public Utilisateur(){
         this.etat = 0;
+        this.dateCreation = new Date();
         this.recettes = new TreeSet<Recette>();
         this.activationCode = RandomStringUtils.randomAlphanumeric(20).toUpperCase();
     }
