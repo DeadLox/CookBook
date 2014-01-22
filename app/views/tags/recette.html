@@ -1,0 +1,16 @@
+<img src="/public/images/logo cookbook.png" alt="" />
+<a target="_blank" href="${_arg.adresse}">
+    ${request.path.contains('recherche')}
+    ${recherche}
+    #{if !request.path.contains('recherche')}
+        ${_arg.titre}
+    #{/if}
+    #{else}
+        ${_arg.hightlightRecherche(recherche).raw()}
+    #{/else}
+</a><br/>
+#{dateAjout _arg /}
+<span class="option">
+    <a class="btn btn-info" href="@{Recettes.show(_arg.id)}"><span class="glyphicon glyphicon-pencil"></span> &{'recette.modifier'}</a>
+    <a class="btn btn-danger" href="@{Application.supprimer(_arg.id)}"><span class="glyphicon glyphicon-remove"></span> &{'recette.supprimer'}</a>
+</span>

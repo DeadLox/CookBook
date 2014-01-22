@@ -78,10 +78,12 @@ public class Application extends Controller {
 
         Alpha selected = getSelected();
 
-        renderArgs.put("selected", selected);
-        renderArgs.put("recettes", recettes);
-        renderArgs.put("total", total);
-        renderArgs.put("recherche", recherche);
+        Map<String, Object> args = new HashMap<String, Object>();
+        args.put("selected", selected);
+        args.put("recettes", recettes);
+        args.put("total", total);
+        args.put("recherche", recherche);
+        //renderTemplate("Application/lettre.html", args);
 
         render();
     }
