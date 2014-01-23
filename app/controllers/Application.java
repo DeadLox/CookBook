@@ -83,9 +83,7 @@ public class Application extends Controller {
         args.put("recettes", recettes);
         args.put("total", total);
         args.put("recherche", recherche);
-        //renderTemplate("Application/lettre.html", args);
-
-        render();
+        renderTemplate("Application/lettre.html", args);
     }
 
     /**

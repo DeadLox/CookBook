@@ -5,7 +5,7 @@
     <ul class="listeRecettes">
     #{list items:recettes,as:'recette'}
         <li>
-            #{recette recette/}
+            #{recette obj:recette, searchText:recherche /}
         </li>
     #{/list}
     </ul>
