@@ -1,14 +1,11 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Liste des recettes</title>
-</head>
-<body>
-    <h1><a href="@{Application.all()}">&{'application.titre'}</a></h1>
-    <ul>
-        <li><a href="@{Utilisateurs.list()}">Adminstration utilisateur</a></li>
-        <li><a href="@{Roles.list()}">Adminstration rôles</a></li>
-        <li><a href="@{Administration.generateList()}">Liste des recettes</a></li>
-    </ul>
-</body>
-</html>
+#{extends 'bo.html' /}
+#{set title:messages.get('application.titre') /}
+
+<table class="table table-striped">
+    <thead>
+        <tr><th>&{'application.administration'}</th></tr>
+    </thead>
+    <tr><td><a href="@{Utilisateurs.list()}">Adminstration utilisateur</a></td></tr>
+    <tr><td><a href="@{Roles.list()}">Adminstration rôles</a></td></tr>
+    <tr><td><a href="@{Administration.generateList()}">Liste des recettes</a></td></tr>
+</table>

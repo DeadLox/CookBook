@@ -189,6 +189,14 @@ div.pagination select {
     vertical-align:top;
 }
 
+/* --- BO --- */
+.boContainer {
+    padding: 20px;
+    border: 5px solid #ddd;
+    border-radius:10px;
+    background-color:white;
+}
+
 /* --- ChangeLog --- */
 .changelog {
     border: 1px solid #ddd;

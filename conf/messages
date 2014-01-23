@@ -64,6 +64,13 @@ secure.signin               = Se connecter
 secure.error                = Oops, email ou mot de passe incorrecte
 secure.logout               = Vous avez été déconnecté.
 
+# BO
+application.administration  = Administration
+role                        = Rôle
+activationCode              = Code d'activation
+dateCreation                = Date de création
+dateActivation              = Date d'activation
+
 # Activation
 application.activation.success                  = Votre a été activé, vous pouvez désormais vous connecter
 application.activation.account.already.activate = Votre compte est déjà activé
