@@ -103,7 +103,7 @@ public class Security extends Secure.Security {
      * @param user
      * @return
      */
-    private static String generateActivationLink(Utilisateur user){
+    public static String generateActivationLink(Utilisateur user){
         Map<String, Object> routeArgs = new HashMap<String, Object>();
         routeArgs.put("email", user.email);
         routeArgs.put("code", user.activationCode);
