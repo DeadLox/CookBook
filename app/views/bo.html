@@ -33,6 +33,18 @@
     </h1>
 
     <div class="boContainer">
+
+        #{if flash.error}
+        <p class="alert alert-danger">
+            &{flash.error}
+        </p>
+        #{/if}
+        #{if flash.success}
+        <p class="alert alert-success">
+            &{flash.success}
+        </p>
+        #{/if}
+
         #{doLayout /}
     </div>
 </div>

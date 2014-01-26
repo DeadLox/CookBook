@@ -41,10 +41,6 @@ public class Bootstrap extends Job {
                     recette.save();
                 }
             }
-            Utilisateur laura = Utilisateur.find("byEmail", "laura-boutche9@hotmail.fr").first();
-            if (laura != null) {
-                laura.delete();
-            }
         }
     }
 }
