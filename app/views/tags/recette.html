@@ -1,5 +1,5 @@
 <img src="/public/images/logo cookbook.png" alt="" />
-<a target="_blank" href="${_obj.adresse}">
+<a class="titre" target="_blank" href="@{Application.showRecette(_obj.id)}">
     #{if _searchText}
         ${_obj.hightlightRecherche(_searchText).raw()}
     #{/if}
@@ -8,6 +8,7 @@
     #{/else}
 </a><br/>
 #{dateAjout _obj /}
+<span class="label label-info nbVues infoBulle" data-toggle="tooltip" title="&{'vues'}"><i class="glyphicon glyphicon-eye-open"></i>  ${_obj.vues}</span>
 <span class="option">
     <a class="btn btn-info" href="@{Recettes.show(_obj.id)}"><span class="glyphicon glyphicon-pencil"></span> &{'recette.modifier'}</a>
     <a class="btn btn-danger" href="@{Application.supprimer(_obj.id)}"><span class="glyphicon glyphicon-remove"></span> &{'recette.supprimer'}</a>

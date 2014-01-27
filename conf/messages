@@ -8,6 +8,10 @@ application.administration.user = Adminsitration
 titre               = Titre
 adresse             = Adresse
 lettre              = Lettre
+vues                = Nombre de vues
+
+recette.date.creation       = Date de création
+recette.date.modification   = Date de dernière modification
 
 ajouter.recette     = Ajouter une recette
 recette.ajouter     = Ajouter une nouvelle recette
@@ -46,6 +50,7 @@ signin              = Se connecter
 logout              = Se déconnecter
 register            = Créer un compte
 login.title         = CookBook
+
 # Inscription
 register.title              = Inscription
 register.create             = Un email d'activation vous a été envoyé.
@@ -80,3 +85,6 @@ application.account.not.activate                = Ce compte n'est pas activé
 
 # CRUD
 crud.hasErrors          = Merci de remplir tous les champs
+
+# Erreurs
+error.redirect.recette  = Une erreur est survenue lors de la redirection vers la recette

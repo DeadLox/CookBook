@@ -10,6 +10,9 @@ GET     /modifier/{id}                          Application.modifier
 POST    /modifier/{id}                          Application.save
 GET     /supprimer/{id}                         Application.supprimer
 GET     /recherche                              Application.recherche
+GET     /recette/{id}                           Application.showRecette
+
+# Divers
 GET     /changlog                               Application.changelog
 GET     /activation/{email}/{code}              Security.activation
 
@@ -19,6 +22,7 @@ GET     /admin/list                             Administration.generateList
 
 # CRUD
 # Recettes
+GET       /admin/recettes                                   Recettes.list
 GET       /admin/recettes/new                               Recettes.blank
 GET       /admin/recettes/{id}                              Recettes.show
 GET       /admin/recettes/{id}/edit                         Recettes.edit

@@ -34,8 +34,11 @@ public class Recette extends Model implements Comparable<Recette> {
     public int note;
     public Date dateDeCreation;
     public Date dateDeModification;
+    public int vues;
 
     public Recette() {
+        this.vues = 0;
+        this.note = 0;
         this.lettre = Alpha.A;
         this.utilisateurs = new TreeSet<Utilisateur>();
     }

@@ -87,18 +87,21 @@ public class Application extends Controller {
     }
 
     /**
-     * Genère l'url avec les paramètres de pagination
-     * @param page
-     * @return
+     * Permet d'incrémenter le compteur de vues puis de rediriger vers l'url de la recette
+     * @param id
      */
-    public static String generateUrl(int page){
-        String params = request.querystring;
-        if (params.equals("")) {
-            params = "?page=" + page;
+    public static void showRecette(long id){
+        Recette recette = Recette.findById(id);
+        if (recette != null) {
+            // Incrémente le compteur de vues
+            recette.vues += 1;
+            recette.save();
+            // On redirige vers l'url de la recette
+            String url = recette.adresse;
+            redirect(url);
         } else {
-            params = "?" + params + "&page=" + page;
+            flash.error(Messages.get("error.redirect.recette"));
         }
-        return params;
     }
 
     /**

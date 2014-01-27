@@ -44,6 +44,9 @@ h1 img {
     overflow:hidden;
     position:relative;
  }
+.listeRecettes li:hover {
+    opacity:1;
+}
 .listeRecettes li:last-child {
     border:none;
 }
@@ -53,10 +56,6 @@ h1 img {
     height:60px;
     margin-right:15px;
     border-radius:10px;
-    opacity:0.5;
- }
- .listeRecettes li:hover img {
-    opacity:1;
  }
  .listeRecettes li a {
      text-transform:capitalize;
@@ -72,12 +71,13 @@ h1 img {
 }
 .listeRecettes .dateAjout {
     display:inline-block !important;
-    padding-left: 4px !important;
+    padding-left: 5px !important;
     font-size:13px !important;
-    opacity:0.5;
 }
-.listeRecettes li:hover .dateAjout {
-    opacity:1;
+.listeRecettes .nbVues {
+    display:inline-block !important;
+    padding-left: 5px !important;
+    font-size:13px !important;
 }
 /* --- Formulaire --- */
 .recettes .alert {
