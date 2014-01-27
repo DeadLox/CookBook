@@ -2,6 +2,7 @@ package controllers;
 
 import models.Role;
 import models.Utilisateur;
+import notifiers.Mails;
 import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.SimpleEmail;
 import org.apache.log4j.Logger;
@@ -73,6 +74,7 @@ public class Security extends Secure.Security {
 
             // Envoi l'email d'activation du compte
             sendActivationMail(user);
+            Mails.activation(user);
 
             flash.put("success", Messages.get("register.create"));
             Secure.login();

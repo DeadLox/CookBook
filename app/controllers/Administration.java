@@ -23,15 +23,4 @@ public class Administration extends Controller {
         List<Recette> recettes = Recette.findAll();
         render(recettes);
     }
-
-    public static void deleteLaura(){
-        Utilisateur laura = Utilisateur.find("byEmail", "laura-boutche9@hotmail.fr").first();
-        if (laura != null) {
-            laura.delete();
-            flash.success("Laura a été supprimé");
-        } else {
-            flash.error("ca a foiré");
-        }
-        index();
-    }
 }

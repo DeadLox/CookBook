@@ -8,5 +8,5 @@ import play.mvc.With;
 
 @With(Secure.class)
 @Check("Administrateur")
-public class Utilisateurs extends CRUD {
+public class Utilisateurs extends MyCRUD {
 }
