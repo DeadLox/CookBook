@@ -50,6 +50,7 @@ signin              = Se connecter
 logout              = Se déconnecter
 register            = Créer un compte
 login.title         = CookBook
+recettes            = Recettes
 
 # Inscription
 register.title              = Inscription

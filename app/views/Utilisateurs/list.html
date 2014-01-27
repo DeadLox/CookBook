@@ -4,7 +4,11 @@
 <div id="crudList" class="${type.name}">
 
     <div id="crudListTable">
-        #{crud.table fields:['email', 'dateCreation', 'role']/}
+        #{crud.table fields:['email', 'dateCreation', 'role', 'recettes']}
+            #{crud.custom 'recettes'}
+                <span class="label label-info">${object.recettes.size()}</span>
+            #{/crud.custom}
+        #{/crud.table}
     </div>
 
     <div id="crudListPagination">
