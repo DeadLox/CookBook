@@ -34,6 +34,7 @@ public class Recette extends Model implements Comparable<Recette> {
     public int note;
     public Date dateDeCreation;
     public Date dateDeModification;
+    @Column(columnDefinition="Integer default '0'")
     public int vues;
 
     public Recette() {
