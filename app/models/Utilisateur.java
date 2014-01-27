@@ -39,6 +39,7 @@ public class Utilisateur extends Model {
     public Role role;
     public Date dateCreation;
     public Date dateActivation;
+    public Date dateLastLogin;
 
     /**
      * Constructeur

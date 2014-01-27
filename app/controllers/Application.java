@@ -13,6 +13,15 @@ import util.PaginationUtil;
 public class Application extends Controller {
     public static Alpha alphaDefaut = Alpha.A;
 
+    @Before
+    static void updateDateLogin(){
+        Utilisateur user = Security.getLoggedMember();
+        if (user != null) {
+            user.dateLastLogin = new Date();
+            user.save();
+        }
+    }
+
     /**
      * Affiche toutes les recettes de l'utilisateur
      */

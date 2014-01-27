@@ -51,6 +51,7 @@ logout              = Se déconnecter
 register            = Créer un compte
 login.title         = CookBook
 recettes            = Recettes
+dateLastLogin       = Dernière connexion
 
 # Inscription
 register.title              = Inscription
