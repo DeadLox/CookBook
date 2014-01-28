@@ -73,31 +73,12 @@ public class Security extends Secure.Security {
             user.save();
 
             // Envoi l'email d'activation du compte
-            sendActivationMail(user);
             Mails.activation(user);
 
             flash.put("success", Messages.get("register.create"));
             Secure.login();
         }
         render();
-    }
-
-    /**
-     * Envoi du mail d'activation
-     * @param user
-     */
-    private static void sendActivationMail(Utilisateur user){
-        try {
-            SimpleEmail email = new SimpleEmail();
-            email.setFrom(emailFrom);
-            email.addTo(user.email);
-            email.setSubject(Messages.get("register.email.subject"));
-            email.setMsg(Messages.get("register.email.message", generateActivationLink(user)));
-            Mail.send(email);
-            logger.info(generateActivationLink(user));
-        } catch (EmailException e) {
-            logger.warn("L'email n'a pas pu être envoyé");
-        }
     }
 
     /**

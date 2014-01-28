@@ -2,7 +2,7 @@ application.titre       = CookBook
 application.version     = v1.3
 application.changelog   = Changelog:
 
-application.administration.user = Adminsitration
+application.administration.user = Administration
 
 # Recette
 titre               = Titre
@@ -61,7 +61,6 @@ register.email.empty        = Veuillez remplir l'email
 register.email.valid        = L'email n'est pas valide.
 register.password.valid     = Le mot de passe doit faire 6 caractères minimum.
 register.email.subject      = Activation de votre compte CookBook
-register.email.message      = Pour activer votre compte, cliquer sur le lien suivant: <a href="%1$s">Activer votre compte CookBook</a>
 
 application.login.bienvenue = Bienvenue:
 secure.username             = Email:
@@ -79,7 +78,7 @@ dateCreation                = Date de création
 dateActivation              = Date d'activation
 
 # Activation
-application.activation.success                  = Votre a été activé, vous pouvez désormais vous connecter
+application.activation.success                  = Votre compte a été activé, vous pouvez désormais vous connecter
 application.activation.account.already.activate = Votre compte est déjà activé
 application.activation.no.account               = Ce compte n'existe pas: %1$s
 application.activation.wrong.code               = Mauvais code d'activation
