@@ -120,4 +120,11 @@ public class Application extends Controller {
     public static void changelog(){
         render();
     }
+
+    public static void showMembres(){
+        renderArgs.put("selected", null);
+        renderArgs.put("membres", Utilisateur.findAll());
+        renderArgs.put("total", Utilisateur.count());
+        render();
+    }
 }

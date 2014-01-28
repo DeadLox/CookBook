@@ -1,0 +1,15 @@
+#{extends 'body.html' /}
+#{set title:messages.get('application.titre') /}
+
+#{if membres.size() > 0 }
+    <ul class="listeRecettes">
+    #{list items:membres,as:'membre'}
+        <li>
+            #{membre membre/}
+        </li>
+    #{/list}
+    </ul>
+#{/if}
+#{else}
+     <div class="message">&{'recette.empty'}</div>
+#{/else}

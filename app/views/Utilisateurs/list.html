@@ -5,8 +5,18 @@
 
     <div id="crudListTable">
         #{crud.table fields:['email', 'dateCreation', 'role', 'recettes', 'dateLastLogin']}
+            #{crud.custom 'dateCreation'}
+                #{if object.dateCreation}
+                    Le ${object.dateCreation.format('dd/MM/yyyy à HH:mm')}
+                #{/if}
+            #{/crud.custom}
             #{crud.custom 'recettes'}
                 <span class="label label-info">${object.recettes.size()}</span>
+            #{/crud.custom}
+            #{crud.custom 'dateLastLogin'}
+                #{if object.dateLastLogin}
+                    Le ${object.dateLastLogin.format('dd/MM/yyyy à HH:mm')}
+                #{/if}
             #{/crud.custom}
         #{/crud.table}
     </div>

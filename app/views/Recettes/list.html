@@ -4,7 +4,16 @@
 <div id="crudList" class="${type.name}">
 
     <div id="crudListTable">
-        #{crud.table fields:['titre', 'auteur', 'dateDeCreation']/}
+        #{crud.table fields:['titre', 'auteur', 'vues', 'dateDeCreation']}
+            #{crud.custom 'vues'}
+                <span class="label label-info">${object.vues}</span>
+            #{/crud.custom}
+            #{crud.custom 'dateDeCreation'}
+                #{if object.dateDeCreation}
+                    Le ${object.dateDeCreation.format('dd/MM/yyyy à HH:mm')}
+                #{/if}
+            #{/crud.custom}
+        #{/crud.table}
     </div>
 
     <div id="crudListPagination">

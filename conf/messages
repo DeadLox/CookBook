@@ -36,6 +36,7 @@ rechercher.btn      = Rechercher
 recherche           = Recherche
 
 #Pagination
+membres             = Membres
 tout                = Tout
 precedent           = <
 suivant             = >
@@ -52,6 +53,13 @@ register            = Créer un compte
 login.title         = CookBook
 recettes            = Recettes
 dateLastLogin       = Dernière connexion
+auteur              = Auteur
+dateDeCreation      = Date de création
+dateDeModification  = Date de modification
+
+# Rôles
+membre              = Membre
+administrateur      = Administrateur
 
 # Inscription
 register.title              = Inscription
@@ -83,6 +91,11 @@ application.activation.account.already.activate = Votre compte est déjà activ�
 application.activation.no.account               = Ce compte n'existe pas: %1$s
 application.activation.wrong.code               = Mauvais code d'activation
 application.account.not.activate                = Ce compte n'est pas activé
+
+# Administration
+admin.recettes      = Recettes
+admin.users         = Utilisateurs
+admin.roles         = Rôles
 
 # CRUD
 crud.hasErrors          = Merci de remplir tous les champs

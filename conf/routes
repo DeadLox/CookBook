@@ -11,6 +11,7 @@ POST    /modifier/{id}                          Application.save
 GET     /supprimer/{id}                         Application.supprimer
 GET     /recherche                              Application.recherche
 GET     /recette/{id}                           Application.showRecette
+GET     /membres                                Application.showMembres
 
 # Divers
 GET     /changlog                               Application.changelog

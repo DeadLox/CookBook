@@ -2,7 +2,8 @@
 #{set loggedMember=controllers.Security.getLoggedMember() /}
 
 <ul class="nav nav-tabs">
-    <li #{if !request.path.contains('lettre') && !request.path.contains('recherche')}class="active"#{/if}><a href="@{Application.all()}">&{'tout'} <span class="label label-info">${loggedMember.recettes.size()}</span></a></li>
+    <li #{if request.path.contains('membres')}class="active"#{/if}><a href="@{Application.showMembres()}">&{'membres'} <span class="label label-info">${models.Utilisateur.count()}</span></a></li>
+    <li #{if !request.path.contains('lettre') && !request.path.contains('recherche') && !request.path.contains('membres')}class="active"#{/if}><a href="@{Application.all()}">&{'tout'} <span class="label label-info">${loggedMember.recettes.size()}</span></a></li>
     #{list items:models.Alpha.values(), as:'alpha'}
         #{set nbRecette= loggedMember.getNbRecette(alpha) /}
         #{if nbRecette > 0}
