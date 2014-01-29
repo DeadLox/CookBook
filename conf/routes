@@ -12,6 +12,7 @@ GET     /supprimer/{id}                         Application.supprimer
 GET     /recherche                              Application.recherche
 GET     /recette/{id}                           Application.showRecette
 GET     /membres                                Application.showMembres
+GET     /membre/{id}                            Application.showMembre
 
 # Divers
 GET     /changlog                               Application.changelog

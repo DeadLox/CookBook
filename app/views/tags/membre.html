@@ -3,5 +3,7 @@
     ${_arg.email}
 </a><br/>
 #{role _arg.role/}
+<span class="label label-primary infoBulle" data-toggle="tooltip" title="&{'recettes.nb'}"><i class="glyphicon glyphicon-list-alt"></i>&nbsp;&nbsp;${_arg.recettes.size()}</span>
 <span class="option">
+    <a class="btn btn-info" href="@{Application.showMembre(_arg.id)}"><i class="glyphicon glyphicon-book"></i> &{'membre.show.cookbook'}</a>
 </span>

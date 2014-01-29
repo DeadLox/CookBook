@@ -9,6 +9,7 @@ titre               = Titre
 adresse             = Adresse
 lettre              = Lettre
 vues                = Nombre de vues
+recettes.nb         = Nombre de recettes
 
 recette.date.creation       = Date de création
 recette.date.modification   = Date de dernière modification
@@ -19,6 +20,8 @@ recette.modifier    = Modifier
 recette.supprimer   = Supprimer
 recette.annuler     = Annuler
 recette.empty       = Aucune recette
+
+membre.show.cookbook = Voir son CookBook
 
 # Validation
 recette.supprimer.success   = La recette %1$s a été supprimée.

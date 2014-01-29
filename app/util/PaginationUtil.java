@@ -1,5 +1,6 @@
 package util;
 
+import controllers.Application;
 import controllers.Security;
 import models.Alpha;
 import models.Recette;
@@ -46,8 +47,8 @@ public class PaginationUtil extends Controller {
     public static List<Recette> getPagination(Scope.Params params, Alpha selected){
         int page = getPage(params);
         int max = getMaxPerPage(params);
-        Utilisateur loggedMember = Security.getLoggedMember();
-        return Recette.find("SELECT r FROM Recette AS r INNER JOIN r.utilisateurs AS u WHERE r.lettre = ? AND ? IN u ORDER BY titre ASC", selected, loggedMember).fetch(page, max);
+        Utilisateur user = Application.getMembre();
+        return Recette.find("SELECT r FROM Recette AS r INNER JOIN r.utilisateurs AS u WHERE r.lettre = ? AND ? IN u ORDER BY titre ASC", selected, user).fetch(page, max);
     }
 
     /**
@@ -55,8 +56,8 @@ public class PaginationUtil extends Controller {
      * @return
      */
     public static long getPaginationCount(Alpha selected){
-        Utilisateur loggedMember = Security.getLoggedMember();
-        return Recette.find("SELECT r FROM Recette AS r INNER JOIN r.utilisateurs AS u WHERE r.lettre = ? AND ? IN u", selected, loggedMember).fetch().size();
+        Utilisateur user = Application.getMembre();
+        return Recette.find("SELECT r FROM Recette AS r INNER JOIN r.utilisateurs AS u WHERE r.lettre = ? AND ? IN u", selected, user).fetch().size();
     }
 
     /**
@@ -68,8 +69,8 @@ public class PaginationUtil extends Controller {
     public static List<Recette> getSearchPagination(Scope.Params params, String recherche){
         int page = getPage(params);
         int max = getMaxPerPage(params);
-        Utilisateur loggedMember = Security.getLoggedMember();
-        return Recette.find("SELECT r FROM Recette AS r INNER JOIN r.utilisateurs AS u WHERE lower(r.titre) LIKE ? AND ? IN u ORDER BY titre ASC", '%'+recherche.toLowerCase()+'%', loggedMember).fetch(page, max);
+        Utilisateur user = Application.getMembre();
+        return Recette.find("SELECT r FROM Recette AS r INNER JOIN r.utilisateurs AS u WHERE lower(r.titre) LIKE ? AND ? IN u ORDER BY titre ASC", '%'+recherche.toLowerCase()+'%', user).fetch(page, max);
     }
 
     /**
@@ -78,8 +79,8 @@ public class PaginationUtil extends Controller {
      * @return
      */
     public static long getSearchCount(String recherche){
-        Utilisateur loggedMember = Security.getLoggedMember();
-        return Recette.find("SELECT r FROM Recette AS r INNER JOIN r.utilisateurs AS u WHERE lower(r.titre) LIKE ? AND ? IN u ORDER BY titre ASC", '%'+recherche.toLowerCase()+'%', loggedMember).fetch().size();
+        Utilisateur user = Application.getMembre();
+        return Recette.find("SELECT r FROM Recette AS r INNER JOIN r.utilisateurs AS u WHERE lower(r.titre) LIKE ? AND ? IN u ORDER BY titre ASC", '%'+recherche.toLowerCase()+'%', user).fetch().size();
     }
 
     /**
@@ -87,8 +88,8 @@ public class PaginationUtil extends Controller {
      * @return
      */
     public static long getTotalPagination(Scope.Params params, Alpha selected){
-        Utilisateur loggedMember = Security.getLoggedMember();
-        return Recette.count("SELECT r FROM Recette AS r INNER JOIN r.utilisateurs AS u WHERE lettre = ? AND ? IN u ORDER BY titre ASC", selected, loggedMember);
+        Utilisateur user = Application.getMembre();
+        return Recette.count("SELECT r FROM Recette AS r INNER JOIN r.utilisateurs AS u WHERE lettre = ? AND ? IN u ORDER BY titre ASC", selected, user);
     }
 
     /**
@@ -98,7 +99,7 @@ public class PaginationUtil extends Controller {
     public static List<Recette> getPaginationAll(Scope.Params params){
         int page = getPage(params);
         int max = getMaxPerPage(params);
-        Utilisateur loggedMember = Security.getLoggedMember();
-        return Recette.find("SELECT r FROM Recette AS r INNER JOIN r.utilisateurs AS u WHERE ? IN u ORDER BY titre ASC", loggedMember).fetch(page, max);
+        Utilisateur user = Application.getMembre();
+        return Recette.find("SELECT r FROM Recette AS r INNER JOIN r.utilisateurs AS u WHERE ? IN u ORDER BY titre ASC", user).fetch(page, max);
     }
 }

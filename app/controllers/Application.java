@@ -26,13 +26,13 @@ public class Application extends Controller {
      * Affiche toutes les recettes de l'utilisateur
      */
     public static void all() {
-        Utilisateur loggedMember = Security.getLoggedMember();
+        Utilisateur user = getMembre();
         List<Recette> recettes = PaginationUtil.getPaginationAll(params);
 
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("selected", null);
         map.put("recettes", recettes);
-        map.put("total", loggedMember.recettes.size());
+        map.put("total", user.recettes.size());
         renderTemplate("Application/lettre.html", map);
     }
 
@@ -49,6 +49,19 @@ public class Application extends Controller {
     }
 
     /**
+     * Retourne l'utilisateur sélectionné
+     * @return
+     */
+    public static Utilisateur getMembre(){
+        if (session.get("user") != null) {
+            Logger.info(session.get("user"));
+            return Utilisateur.findById(Long.parseLong(session.get("user")));
+        } else {
+            return Security.getLoggedMember();
+        }
+    }
+
+    /**
      * Affiche la liste des recettes correspondant à la lettre
      * @param lettreSelected
      */
@@ -56,7 +69,6 @@ public class Application extends Controller {
         session.put("selected", lettreSelected);
 
         Alpha selected = getSelected();
-        Utilisateur loggedMember = Security.getLoggedMember();
         List<Recette> recettes = PaginationUtil.getPagination(params, selected);
 
         renderArgs.put("selected", selected);
@@ -126,5 +138,15 @@ public class Application extends Controller {
         renderArgs.put("membres", Utilisateur.findAll());
         renderArgs.put("total", Utilisateur.count());
         render();
+    }
+
+    public static void showMembre(long id){
+        Utilisateur user = Utilisateur.findById(id);
+        if (user != null){
+            session.put("user", user.id);
+            all();
+        } else {
+            flash.error("Cet utilisateur n'existe pas.");
+        }
     }
 }
