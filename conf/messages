@@ -20,6 +20,8 @@ recette.modifier    = Modifier
 recette.supprimer   = Supprimer
 recette.annuler     = Annuler
 recette.empty       = Aucune recette
+my.cookbook         = Retourner à mon CookBook
+cookbook.of         = CookBook de %1$s
 
 membre.show.cookbook = Voir son CookBook
 

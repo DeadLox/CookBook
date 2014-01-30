@@ -17,7 +17,7 @@
     <body>
         <div class="container">
 
-            #{set loggedMember=controllers.Security.getLoggedMember() /}
+            #{set loggedMember = controllers.Security.getLoggedMember() /}
 
             <div class="infoMember">
                 <a class="btn btn-danger btn-logout" href="@{Secure.logout()}"><span class="glyphicon glyphicon-log-out"></span> &{'logout'}</a>
@@ -34,7 +34,12 @@
             </h1>
 
             <div class="menu-bar">
-                <a class="btn btn-info btn-addRecette" href="@{Recettes.blank()}"><span class="glyphicon glyphicon-plus"></span> &{'recette.ajouter'}</a>
+                #{if loggedMember.equals(controllers.Application.getMembre()) }
+                    <a class="btn btn-info btn-addRecette" href="@{Recettes.blank()}"><span class="glyphicon glyphicon-plus"></span> &{'recette.ajouter'}</a>
+                #{/if}
+                #{else}
+                    <a class="btn btn-primary btn-addRecette" href="@{Application.myCookbook()}"><span class="glyphicon glyphicon-list-alt"></span> &{'my.cookbook'}</a>
+                #{/else}
 
                 <div class="recherche">
                     #{form @Application.recherche(), method:'GET'}
@@ -47,6 +52,10 @@
                     #{/form}
                 </div>
             </div>
+
+            #{if !loggedMember.equals(controllers.Application.getMembre()) }
+                <div class="cookbook-message">&{'cookbook.of', controllers.Application.getMembre()}</div>
+            #{/if}
 
             #{if flash.error}
             <p class="alert alert-danger">

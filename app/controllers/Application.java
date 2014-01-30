@@ -149,4 +149,9 @@ public class Application extends Controller {
             flash.error("Cet utilisateur n'existe pas.");
         }
     }
+
+    public static void myCookbook(){
+        session.remove("user");
+        all();
+    }
 }

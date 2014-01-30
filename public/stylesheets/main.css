@@ -156,6 +156,13 @@ h1 .version {
     margin-bottom: 20px;
 }
 
+.cookbook-message {
+    margin: 10px 0;
+    text-align:center;
+    font-size:26px;
+    font-family: 'playtime', arial;
+}
+
 /* -- Info member -- */
 .infoMember {
     margin-top:23px;

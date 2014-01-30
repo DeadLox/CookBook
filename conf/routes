@@ -13,6 +13,7 @@ GET     /recherche                              Application.recherche
 GET     /recette/{id}                           Application.showRecette
 GET     /membres                                Application.showMembres
 GET     /membre/{id}                            Application.showMembre
+GET     /cookbook/                              Application.myCookbook
 
 # Divers
 GET     /changlog                               Application.changelog
