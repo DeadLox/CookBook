@@ -36,9 +36,12 @@ public class Recette extends Model implements Comparable<Recette> {
     public Date dateDeModification;
     @Column(columnDefinition="Integer default '0'")
     public int vues;
+    @Column(columnDefinition="Integer default '0'")
+    public int reprise;
 
     public Recette() {
         this.vues = 0;
+        this.note = 0;
         this.note = 0;
         this.lettre = Alpha.A;
         this.utilisateurs = new TreeSet<Utilisateur>();

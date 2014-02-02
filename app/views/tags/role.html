@@ -1,6 +1,6 @@
 #{if _arg.libelle.equals('Membre')}
-    <span class="label label-info">&{'membre'}</span>
+    <span class="label label-info infoBulle" data-toggle="tooltip" title="&{'role'}"><i class="glyphicon glyphicon-user"></i> &{'membre'}</span>
 #{/if}
 #{else}
-    <span class="label label-danger">&{'administrateur'}</span>
+    <span class="label label-danger infoBulle" data-toggle="tooltip" title="&{'role'}"><i class="glyphicon glyphicon-user"></i> &{'administrateur'}</span>
 #{/else}

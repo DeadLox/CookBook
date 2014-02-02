@@ -54,11 +54,18 @@ public class Application extends Controller {
      */
     public static Utilisateur getMembre(){
         if (session.get("user") != null) {
-            Logger.info(session.get("user"));
             return Utilisateur.findById(Long.parseLong(session.get("user")));
         } else {
             return Security.getLoggedMember();
         }
+    }
+
+    /**
+     * Retourne TRUE si on est bien sur le CookBook du membre connecté
+     * @return
+     */
+    public static boolean isMyCookBook(){
+        return controllers.Security.getLoggedMember().equals(controllers.Application.getMembre());
     }
 
     /**
@@ -152,6 +159,24 @@ public class Application extends Controller {
 
     public static void myCookbook(){
         session.remove("user");
+        all();
+    }
+
+    public static void addToMyCookBook(long id){
+        Recette recette = Recette.findById(id);
+        if (recette != null) {
+            Utilisateur loggedMember = Security.getLoggedMember();
+            if (!loggedMember.recettes.contains(recette)) {
+                recette.utilisateurs.add(loggedMember);
+                recette.reprise += 1;
+                recette.save();
+                flash.success(Messages.get("recette.cookbook.reprise.added", recette.titre, recette.auteur.email));
+            } else {
+                flash.error(Messages.get("recette.cookbook.already.exist"));
+            }
+        } else {
+            flash.error(Messages.get("recette.not.exist"));
+        }
         all();
     }
 }

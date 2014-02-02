@@ -22,7 +22,7 @@
             <div class="infoMember">
                 <a class="btn btn-danger btn-logout" href="@{Secure.logout()}"><span class="glyphicon glyphicon-log-out"></span> &{'logout'}</a>
                 #{if loggedMember.role.libelle.equals("Administrateur")}
-                    <a class="btn btn-warning btn-admin" href="@{Administration.index()}">&{'application.administration.user'}</a>
+                    <a class="btn btn-warning btn-admin" href="@{Administration.index()}"><span class="glyphicon glyphicon-lock"></span> &{'application.administration.user'}</a>
                 #{/if}
                 <span class="userName">&{'application.login.bienvenue'} <strong>${loggedMember.email}</strong></span>
             </div>
@@ -32,6 +32,10 @@
                 <a href="@{Application.all()}">&{'application.titre'}</a>
                 <a class="version" href="@{Application.changelog()}">&{'application.version'}</a>
             </h1>
+
+            #{if !loggedMember.equals(controllers.Application.getMembre()) }
+            <h2 class="cookbook-message">&{'cookbook.of', controllers.Application.getMembre()}</h2>
+            #{/if}
 
             <div class="menu-bar">
                 #{if loggedMember.equals(controllers.Application.getMembre()) }
@@ -52,10 +56,6 @@
                     #{/form}
                 </div>
             </div>
-
-            #{if !loggedMember.equals(controllers.Application.getMembre()) }
-                <div class="cookbook-message">&{'cookbook.of', controllers.Application.getMembre()}</div>
-            #{/if}
 
             #{if flash.error}
             <p class="alert alert-danger">

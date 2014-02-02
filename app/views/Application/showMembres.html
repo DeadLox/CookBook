@@ -4,9 +4,11 @@
 #{if membres.size() > 0 }
     <ul class="listeRecettes">
     #{list items:membres,as:'membre'}
-        <li>
-            #{membre membre/}
-        </li>
+        #{if !membre.equals(controllers.Security.getLoggedMember())}
+            <li>
+                #{membre membre/}
+            </li>
+        #{/if}
     #{/list}
     </ul>
 #{/if}

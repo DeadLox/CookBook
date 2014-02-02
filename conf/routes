@@ -14,6 +14,7 @@ GET     /recette/{id}                           Application.showRecette
 GET     /membres                                Application.showMembres
 GET     /membre/{id}                            Application.showMembre
 GET     /cookbook/                              Application.myCookbook
+GET     /myCookBook/add/{id}                    Application.addToMyCookBook
 
 # Divers
 GET     /changlog                               Application.changelog

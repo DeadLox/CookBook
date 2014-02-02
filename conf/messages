@@ -9,19 +9,26 @@ titre               = Titre
 adresse             = Adresse
 lettre              = Lettre
 vues                = Nombre de vues
+reprise             = Nombre de membres ayant repris cette recette
 recettes.nb         = Nombre de recettes
 
 recette.date.creation       = Date de création
 recette.date.modification   = Date de dernière modification
 
-ajouter.recette     = Ajouter une recette
-recette.ajouter     = Ajouter une nouvelle recette
-recette.modifier    = Modifier
-recette.supprimer   = Supprimer
-recette.annuler     = Annuler
-recette.empty       = Aucune recette
-my.cookbook         = Retourner à mon CookBook
-cookbook.of         = CookBook de %1$s
+ajouter.recette                 = Ajouter une recette
+recette.ajouter                 = Ajouter une nouvelle recette
+recette.modifier                = Modifier
+recette.supprimer               = Supprimer
+recette.annuler                 = Annuler
+recette.empty                   = Aucune recette
+recette.auteur                  = Auteur de la recette
+
+# CookBook membre
+my.cookbook                     = Retourner à mon CookBook
+cookbook.of                     = CookBook de %1$s
+recette.add.my.cookbook         = Ajouter à mon CookBook
+recette.cookbook.reprise.added  = La recette '%1$s' de %2$s a été ajoutée à votre CookBook
+recette.cookbook.already.exist  = Cette recette est déjà dans votre CookBook
 
 membre.show.cookbook = Voir son CookBook
 
