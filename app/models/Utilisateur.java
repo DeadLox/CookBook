@@ -6,6 +6,7 @@ import org.apache.commons.lang.RandomStringUtils;
 import play.data.validation.Email;
 import play.data.validation.Min;
 import play.data.validation.Required;
+import play.data.validation.Unique;
 import play.db.jpa.Model;
 
 import javax.persistence.CascadeType;
@@ -22,6 +23,9 @@ import java.util.TreeSet;
  */
 @Entity
 public class Utilisateur extends Model {
+    @Required
+    @Unique
+    public String pseudo;
     @Required
     @Email
     public String email;

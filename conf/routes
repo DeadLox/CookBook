@@ -23,6 +23,7 @@ GET     /activation/{email}/{code}              Security.activation
 # Adminstration
 GET     /admin                                  Administration.index
 GET     /admin/list                             Administration.generateList
+GET     /admin/pseudo                           Administration.setPseudo
 
 # CRUD
 # Recettes

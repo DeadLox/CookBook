@@ -4,7 +4,7 @@
 <div id="crudList" class="${type.name}">
 
     <div id="crudListTable">
-        #{crud.table fields:['email', 'dateCreation', 'role', 'recettes', 'dateLastLogin']}
+        #{crud.table fields:['pseudo', 'email', 'dateCreation', 'role', 'recettes', 'dateLastLogin']}
             #{crud.custom 'dateCreation'}
                 #{if object.dateCreation}
                     Le ${object.dateCreation.format('dd/MM/yyyy à HH:mm')}

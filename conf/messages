@@ -57,6 +57,7 @@ first.page          = Première page
 last.page           = Dernière page
 
 # Login
+pseudo              = Pseudo
 email               = Email
 password            = Mot de passe
 remember            = Se souvenir de moi
@@ -77,8 +78,11 @@ administrateur      = Administrateur
 # Inscription
 register.title              = Inscription
 register.create             = Un email d'activation vous a été envoyé.
+register.all.empty          = Veuillez renseigner les champs.
+register.pseudo.exist       = Cet pseudo est déjà pris, veuillez en choisir un autre.
+register.pseudo.empty       = Veuillez renseigner un pseudo
 register.email.exist        = Cet email existe déjà, veuillez en choisir un autre.
-register.email.empty        = Veuillez remplir l'email
+register.email.empty        = Veuillez renseigner un email
 register.email.valid        = L'email n'est pas valide.
 register.password.valid     = Le mot de passe doit faire 6 caractères minimum.
 register.email.subject      = Activation de votre compte CookBook

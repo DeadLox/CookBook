@@ -34,30 +34,43 @@ public class Security extends Secure.Security {
      * @param password
      * @throws Throwable
      */
-    public static void register(@Required String email, @Required String password) throws Throwable {
-        if (email != null && password != null) {
+    public static void register(@Required String pseudo, @Required String email, @Required String password) throws Throwable {
+        if (pseudo != null && email != null && password != null) {
             boolean error = false;
+            // Sauvegarde le Pseudo pour l'affichage
+            flash.put("pseudo", pseudo);
             // Vérifie l'email et le password
-            if (!email.equals("")) {
-                // Si l'email existe déjà
-                if (Utilisateur.count("byEmail", email) > 0) {
-                    error = true;
-                    flash.put("error", Messages.get("register.email.exist"));
-                } else {
-                    Validation.ValidationResult result = validation.email(email);
-                    if (result.ok) {
-                        if (password.equals("") || password.length() < 6) {
+            if (!pseudo.equals("")) {
+                // Si le pseudo existe déjà
+                if (Utilisateur.count("byPseudo", pseudo) == 0) {
+                    if (!email.equals("")) {
+                        // Si l'email existe déjà
+                        if (Utilisateur.count("byEmail", email) > 0) {
                             error = true;
-                            flash.put("error", Messages.get("register.password.valid"));
+                            flash.put("error", Messages.get("register.email.exist"));
+                        } else {
+                            Validation.ValidationResult result = validation.email(email);
+                            if (result.ok) {
+                                if (password.equals("") || password.length() < 6) {
+                                    error = true;
+                                    flash.put("error", Messages.get("register.password.valid"));
+                                }
+                            } else {
+                                error = true;
+                                flash.put("error", Messages.get("register.email.valid"));
+                            }
                         }
                     } else {
                         error = true;
-                        flash.put("error", Messages.get("register.email.valid"));
+                        flash.put("error", Messages.get("register.email.empty"));
                     }
+                } else {
+                    error = true;
+                    flash.put("error", Messages.get("register.pseudo.valid"));
                 }
             } else {
                 error = true;
-                flash.put("error", Messages.get("register.email.empty"));
+                flash.put("error", Messages.get("register.pseudo.empty"));
             }
             if (error) {
                 render();
@@ -67,6 +80,7 @@ public class Security extends Secure.Security {
 
             // On créé l'utilisateur
             Utilisateur user = new Utilisateur();
+            user.pseudo = pseudo;
             user.email = email;
             user.password = Codec.hexMD5(password);
             user.role = membreRole;
@@ -77,6 +91,8 @@ public class Security extends Secure.Security {
 
             flash.put("success", Messages.get("register.create"));
             Secure.login();
+        } else {
+            flash.put("error", Messages.get("register.all.empty"));
         }
         render();
     }
