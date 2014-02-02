@@ -4,9 +4,12 @@
 <div id="crudList" class="${type.name}">
 
     <div id="crudListTable">
-        #{crud.table fields:['titre', 'auteur', 'vues', 'dateDeCreation']}
+        #{crud.table fields:['titre', 'auteur', 'vues', 'reprise', 'dateDeCreation']}
             #{crud.custom 'vues'}
                 <span class="label label-info">${object.vues}</span>
+            #{/crud.custom}
+            #{crud.custom 'reprise'}
+                <span class="label label-warning">${object.reprise}</span>
             #{/crud.custom}
             #{crud.custom 'dateDeCreation'}
                 #{if object.dateDeCreation}
@@ -20,8 +23,8 @@
         #{crud.pagination /}
     </div>
 
-    <p id="crudListAdd">
-        <a class="btn btn-primary" href="@{blank()}">&{'crud.add', type.modelName}</a>
-    </p>
+    <a class="btn btn-primary" href="@{blank()}">&{'crud.add', type.modelName}</a>
+    <a class="btn btn-warning" href="@{Administration.generateList()}">&{'admin.recettes.export'}</a>
+    <a class="btn btn-default" href="@{Administration.index()}">&{'retour'}</a>
 
 </div>

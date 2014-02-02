@@ -1,5 +1,5 @@
 application.titre       = CookBook
-application.version     = v1.3
+application.version     = v1.4
 application.changelog   = Changelog:
 
 application.administration.user = Administration
@@ -9,7 +9,8 @@ titre               = Titre
 adresse             = Adresse
 lettre              = Lettre
 vues                = Nombre de vues
-reprise             = Nombre de membres ayant repris cette recette
+reprise             = Nombre de reprises
+reprise.nb          = Nombre de membres ayant repris cette recette
 recettes.nb         = Nombre de recettes
 
 recette.date.creation       = Date de création
@@ -96,6 +97,8 @@ role                        = Rôle
 activationCode              = Code d'activation
 dateCreation                = Date de création
 dateActivation              = Date d'activation
+retour                      = Retour
+admin.recettes.export       = Exporter les recettes au format YML
 
 # Activation
 application.activation.success                  = Votre compte a été activé, vous pouvez désormais vous connecter
@@ -111,6 +114,7 @@ admin.roles         = Rôles
 
 # CRUD
 crud.hasErrors          = Merci de remplir tous les champs
+crud.add                = Ajouter %1$s
 
 # Erreurs
 error.redirect.recette  = Une erreur est survenue lors de la redirection vers la recette

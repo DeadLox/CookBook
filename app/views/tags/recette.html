@@ -13,7 +13,7 @@
     <span class="label label-success infoBulle" data-toggle="tooltip" title="&{'recette.auteur'}"><i class="glyphicon glyphicon-user"></i>  ${_obj.auteur}</span>
 #{/if}
 #{if _obj.reprise > 0}
-    <span class="label label-warning infoBulle" data-toggle="tooltip" title="&{'reprise'}"><i class="glyphicon glyphicon-registration-mark"></i>  ${_obj.reprise}</span>
+    <span class="label label-warning infoBulle" data-toggle="tooltip" title="&{'reprise.nb'}"><i class="glyphicon glyphicon-registration-mark"></i>  ${_obj.reprise}</span>
 #{/if}
 <span class="option">
     #{if _obj.auteur.equals(controllers.Security.getLoggedMember())}
