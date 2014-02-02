@@ -88,6 +88,6 @@ public class Utilisateur extends Model {
     }
 
     public String toString(){
-        return this.email;
+        return this.pseudo;
     }
 }
