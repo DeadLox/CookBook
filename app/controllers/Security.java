@@ -91,8 +91,6 @@ public class Security extends Secure.Security {
 
             flash.put("success", Messages.get("register.create"));
             Secure.login();
-        } else {
-            flash.put("error", Messages.get("register.all.empty"));
         }
         render();
     }

@@ -6,6 +6,8 @@
         recherche = params.get('recherche');
         rechercheParam = "?recherche=" + recherche.urlEncode() + "&page=";
     }
+    int proximite = util.PaginationUtil.PROXIMITE;
+    int proximiteSel = util.PaginationUtil.PROXIMITE_SELECTED;
 /}%
 <div class="pagination">
     #{if nbPage > 1}
@@ -15,7 +17,19 @@
                 <li><a href="${rechercheParam}${pageSelected-1}">&{'precedent'}</a></li>
             #{/if}
             #{list items:1..nbPage, as:'page'}
-                <li class="#{if pageSelected == page}active#{/if}"><a href="${rechercheParam}${page}">${page}</a></li>
+                #{if nbPage > proximite*2+1}
+                    #{if ((page == proximite+1 && page != pageSelected-proximiteSel) || (page == nbPage-proximite && page != pageSelected+proximiteSel && pageSelected > proximite+1 && pageSelected < nbPage-proximite)) && pageSelected != page}
+                        <li class="disabled"><a href="${rechercheParam}${page}">...</a></li>
+                    #{/if}
+                    #{else}
+                        #{if page < proximite+1 || page > nbPage-proximite || (pageSelected >= page-proximiteSel && pageSelected <= page+proximiteSel)}
+                            <li class="#{if pageSelected == page}active#{/if}"><a href="${rechercheParam}${page}">${page}</a></li>
+                        #{/if}
+                    #{/else}
+                #{/if}
+                #{else}
+                    <li class="#{if pageSelected == page}active#{/if}"><a href="${rechercheParam}${page}">${page}</a></li>
+                #{/else}
             #{/list}
             #{if pageSelected < nbPage}
                 <li><a href="${rechercheParam}${pageSelected+1}">&{'suivant'}</a></li>
@@ -26,12 +40,30 @@
     <form action="${request.url}" method="GET">
         <input type="hidden" name="recherche" value="${recherche}" />
         <input type="hidden" name="page" value="1" />
+        <label for="paginationMax">Max:</label>
         #{select id:'paginationMax', name:'max', items:util.PaginationUtil.listMaxPerPage, class:'form-control', value:util.PaginationUtil.getMaxPerPage(params)/}
+        <label for="paginationTri">Trier par:</label>
+        #{if request.path.contains("membre")}
+            #{select id:'paginationTri', name:'tri', items:util.PaginationUtil.listTriMembre, class:'form-control', value:util.PaginationUtil.getTriMembre(params)/}
+        #{/if}
+        #{else}
+            #{select id:'paginationTri', name:'tri', items:util.PaginationUtil.listTri, class:'form-control', value:util.PaginationUtil.getTri(params)/}
+        #{/else}
+        <label for="paginatiopaginationOrdrenMax">Ordre:</label>
+        #{select id:'paginationOrdre', name:'ordre', items:util.PaginationUtil.listOrder, class:'form-control', value:util.PaginationUtil.getOrder(params)/}
     </form>
     <script>
         $(document).ready(function(){
              // Détecte le changement de limite de pagination et soumet le formulaire
              $('#paginationMax').change(function(){
+                $(this).parent().submit();
+             });
+             // Détecte le changement de tri de pagination et soumet le formulaire
+             $('#paginationTri').change(function(){
+                $(this).parent().submit();
+             });
+             // Détecte le changement d'ordre de pagination et soumet le formulaire
+             $('#paginationOrdre').change(function(){
                 $(this).parent().submit();
              });
         });

@@ -55,6 +55,11 @@ precedent           = <
 suivant             = >
 first.page          = Première page
 last.page           = Dernière page
+pagination.max.format.exception = La limite maximum de pagination doit être un nombre: '%1$s'
+pagination.tri.not.found        = Le tri par '%1$s' n'est pas possible
+pagination.order.not.found      = Le tri par ordre '%1$s' n'est pas possible
+ASC                 = Croissant
+DESC                = Décroissant
 
 # Login
 pseudo              = Pseudo
@@ -119,6 +124,9 @@ admin.roles         = Rôles
 # CRUD
 crud.hasErrors          = Merci de remplir tous les champs
 crud.add                = Ajouter %1$s
+crud.deleted            = La recette '%1$s' a été supprimé de votre CookBook
+crud.recette.delete.non.possede = Vous ne possèdez pas supprimer cette recette
+crud.recette.not.exist          = Cette recette n'existe pas
 
 # Erreurs
 error.redirect.recette  = Une erreur est survenue lors de la redirection vers la recette

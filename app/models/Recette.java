@@ -18,7 +18,6 @@ import java.util.*;
  */
 @Entity
 public class Recette extends Model implements Comparable<Recette> {
-    @Unique
     @Required
     public String titre;
     @Required

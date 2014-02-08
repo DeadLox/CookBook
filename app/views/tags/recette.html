@@ -18,7 +18,7 @@
 <span class="option">
     #{if _obj.auteur.equals(controllers.Security.getLoggedMember())}
         <a class="btn btn-info" href="@{Recettes.show(_obj.id)}"><i class="glyphicon glyphicon-pencil"></i> &{'recette.modifier'}</a>
-        <a class="btn btn-danger" href="@{Application.supprimer(_obj.id)}"><i class="glyphicon glyphicon-remove"></i> &{'recette.supprimer'}</a>
+        <a class="btn btn-danger" href="@{Recettes.supprimer(_obj.id)}"><i class="glyphicon glyphicon-remove"></i> &{'recette.supprimer'}</a>
     #{/if}
     #{else}
         #{if !controllers.Application.isMyCookBook() }

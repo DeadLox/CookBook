@@ -1,6 +1,6 @@
 package controllers;
 
-import play.Logger;
+import org.apache.log4j.Logger;
 import play.i18n.Messages;
 import play.mvc.*;
 
@@ -11,6 +11,7 @@ import util.PaginationUtil;
 
 @With(Secure.class)
 public class Application extends Controller {
+    private static Logger logger = Logger.getLogger(Application.class);
     public static Alpha alphaDefaut = Alpha.A;
 
     @Before
@@ -84,17 +85,6 @@ public class Application extends Controller {
         render();
     }
 
-    public static void supprimer(Long id){
-        Recette recette = Recette.findById(id);
-        for (Utilisateur user : recette.utilisateurs) {
-            user.recettes.remove(recette);
-            user.save();
-        }
-        flash.put("error", Messages.get("recette.supprimer.success", recette));
-        recette.delete();
-        all();
-    }
-
     /**
      * Effectue une recherche
      *
@@ -142,8 +132,9 @@ public class Application extends Controller {
 
     public static void showMembres(){
         renderArgs.put("selected", null);
-        renderArgs.put("membres", Utilisateur.findAll());
-        renderArgs.put("total", Utilisateur.count());
+        renderArgs.put("membres", PaginationUtil.getMembrePagination(params));
+        // On retire 1 pour ne pas tenir compte de l'utilisateur loggé
+        renderArgs.put("total", Utilisateur.count()-1);
         render();
     }
 

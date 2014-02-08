@@ -9,7 +9,9 @@ import play.data.validation.*;
 import play.data.validation.Error;
 import play.db.Model;
 import play.exceptions.TemplateNotFoundException;
+import play.i18n.Messages;
 import play.mvc.With;
+import sun.print.resources.serviceui_zh_CN;
 import util.PaginationUtil;
 
 import java.lang.reflect.Constructor;
@@ -47,6 +49,7 @@ public class Recettes extends CRUD {
             render("Recettes/blank.html", type, object);
         }
         object.dateDeCreation = new Date();
+        object.dateDeModification = object.dateDeCreation;
         object.save();
         flash.success(play.i18n.Messages.get("recette.add", object.titre));
         Application.all();
@@ -69,6 +72,29 @@ public class Recettes extends CRUD {
         object.dateDeModification = new Date();
         object._save();
         flash.success(play.i18n.Messages.get("recette.edit", type.modelName));
+        Application.all();
+    }
+
+    public static void supprimer(long id) {
+        Recette recette = Recette.findById(id);
+        if (recette != null) {
+            Utilisateur user = Security.getLoggedMember();
+            if (recette.utilisateurs.contains(user)) {
+                // Si aucun n'autre utilisateur possède la recette, on la supprime
+                if (recette.utilisateurs.size() == 1) {
+                    recette._delete();
+                // Sinon on retire juste cette utilisateur
+                } else {
+                    recette.utilisateurs.remove(user);
+                    recette.save();
+                }
+                flash.success(Messages.get("crud.deleted", type.modelName));
+            } else {
+                flash.error(Messages.get("crud.recette.delete.non.possede"));
+            }
+        } else {
+            flash.error(Messages.get("crud.recette.not.exist"));
+        }
         Application.all();
     }
 
