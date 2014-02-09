@@ -6,8 +6,9 @@ application.administration.user = Administration
 
 # Recette
 titre               = Titre
-adresse             = Adresse
 lettre              = Lettre
+adresse             = Adresse
+description         = Description
 vues                = Nombre de vues
 reprise             = Nombre de reprises
 reprise.nb          = Nombre de membres ayant repris cette recette
@@ -15,6 +16,8 @@ recettes.nb         = Nombre de recettes
 
 recette.date.creation       = Date de création
 recette.date.modification   = Date de dernière modification
+recette.adresse.info        = Entrer ici l'adresse internet vers la recette.
+recette.description.info    = Décriver votre recette ici.
 
 ajouter.recette                 = Ajouter une recette
 recette.ajouter                 = Ajouter une nouvelle recette

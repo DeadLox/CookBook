@@ -2,6 +2,7 @@ package models;
 
 import controllers.Secure;
 import controllers.Security;
+import play.data.validation.MaxSize;
 import play.data.validation.Required;
 import play.data.validation.Unique;
 import play.db.jpa.Model;
@@ -20,8 +21,9 @@ import java.util.*;
 public class Recette extends Model implements Comparable<Recette> {
     @Required
     public String titre;
-    @Required
     public String adresse;
+    @MaxSize(10000)
+    public String description;
     @Required
     public Alpha lettre;
     @OneToOne

@@ -7,7 +7,29 @@
 
     <div class="objectForm">
     #{form action:@create(), enctype:'multipart/form-data'}
-        #{crud.form fields:['titre', 'adresse', 'lettre']/}
+        #{crud.form fields:['titre', 'lettre']/}
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#adresse" data-toggle="tab">&{'adresse'}</a></li>
+            <li><a href="#description" data-toggle="tab">&{'description'}</a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane active" id="adresse">
+                <p>&{'recette.adresse.info'}</p>
+                #{crud.form fields:['adresse']}
+                    #{crud.custom 'adresse'}
+                        <input id="object_adresse" class=" form-control" type="text" name="object.adresse" value="" size="50">
+                    #{/crud.custom}
+                #{/crud.form}
+            </div>
+            <div class="tab-pane" id="description">
+                <p>&{'recette.description.info'}</p>
+                #{crud.form fields:['description']}
+                    #{crud.custom 'description'}
+                        <textarea id="object_description" class="form-control" class="" name="object.description"></textarea>
+                    #{/crud.custom}
+                #{/crud.form}
+            </div>
+        </div>
         <p class="crudButtons">
             <input class="btn btn-primary" type="submit" name="_save" value="&{'recette.save'}" />
             <a class="btn btn-default" href="@{Application.all()}">&{'recette.annuler'}</a>
