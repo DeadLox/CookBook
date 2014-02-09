@@ -279,6 +279,9 @@ div.pagination #paginationOrdre {
     .listeRecettes li:hover .option {
         display:none;
     }
+    .listeRecettes {
+        padding:10px 5px;
+    }
     div.pagination form {
         width:100%;
     }
