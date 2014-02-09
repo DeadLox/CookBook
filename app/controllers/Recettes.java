@@ -71,7 +71,7 @@ public class Recettes extends CRUD {
         }
         object.dateDeModification = new Date();
         object._save();
-        flash.success(play.i18n.Messages.get("recette.edit", type.modelName));
+        flash.success(play.i18n.Messages.get("recette.edit", object.titre));
         Application.all();
     }
 

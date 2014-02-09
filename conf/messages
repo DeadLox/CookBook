@@ -34,9 +34,9 @@ recette.cookbook.already.exist  = Cette recette est déjà dans votre CookBook
 membre.show.cookbook = Voir son CookBook
 
 # Validation
-recette.supprimer.success   = La recette %1$s a été supprimée.
-recette.add                 = La recette %1$s a été ajoutée.
-recette.edit                = La recette %1$s a été modifiée.
+recette.supprimer.success   = La recette '%1$s' a été supprimée.
+recette.add                 = La recette '%1$s' a été ajoutée.
+recette.edit                = La recette '%1$s' a été modifiée.
 
 # Formulaire
 recette.ajouter.title       = Ajouter une nouvelle recette

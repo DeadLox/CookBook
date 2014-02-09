@@ -21,7 +21,7 @@ public class PaginationUtil extends Controller {
     public static int PROXIMITE_SELECTED = 1;
     public static int MAX_DEFAUT = 5;
     public static int PAGE = 1;
-    public static List<Integer> listMaxPerPage = Arrays.asList(1,5,10,20,50);
+    public static List<Integer> listMaxPerPage = Arrays.asList(5,10,20,50);
     public static String TRI_DEFAUT = "titre";
     public static List<String> listTri = Arrays.asList("titre", "dateDeCreation", "dateDeModification", "vues", "auteur");
     public static String ORDER_ASC = "ASC";

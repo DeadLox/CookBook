@@ -4,8 +4,8 @@
     <head>
         <title>#{get 'title' /}</title>
         <meta charset="${_response_encoding}">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/bootstrap.min.css'}">
-        <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/bootstrap-theme.min.css'}">
         <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/main.css'}">
         #{get 'moreStyles' /}
         <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
@@ -19,32 +19,13 @@
 
             #{set loggedMember = controllers.Security.getLoggedMember() /}
 
-            <div class="infoMember">
-                <a class="btn btn-danger btn-logout" href="@{Secure.logout()}"><span class="glyphicon glyphicon-log-out"></span> &{'logout'}</a>
-                #{if loggedMember.role.libelle.equals("Administrateur")}
-                    <a class="btn btn-warning btn-admin" href="@{Administration.index()}"><span class="glyphicon glyphicon-lock"></span> &{'application.administration.user'}</a>
-                #{/if}
-                <span class="userName">&{'application.login.bienvenue'} <strong>${loggedMember.email}</strong></span>
-            </div>
-
-            <h1>
-                <img src="/public/images/logo cookbook.png" alt="logo"/>
-                <a href="@{Application.all()}">&{'application.titre'}</a>
-                <a class="version" href="@{Application.changelog()}">&{'application.version'}</a>
-            </h1>
+            #{include 'navbar.html' /}
 
             #{if !loggedMember.equals(controllers.Application.getMembre()) }
-            <h2 class="cookbook-message">&{'cookbook.of', controllers.Application.getMembre()}</h2>
+                <h2 class="cookbook-message">&{'cookbook.of', controllers.Application.getMembre()}</h2>
             #{/if}
 
             <div class="menu-bar">
-                #{if loggedMember.equals(controllers.Application.getMembre()) }
-                    <a class="btn btn-info btn-addRecette" href="@{Recettes.blank()}"><span class="glyphicon glyphicon-plus"></span> &{'recette.ajouter'}</a>
-                #{/if}
-                #{else}
-                    <a class="btn btn-primary btn-addRecette" href="@{Application.myCookbook()}"><span class="glyphicon glyphicon-list-alt"></span> &{'my.cookbook'}</a>
-                #{/else}
-
                 <div class="recherche">
                     #{form @Application.recherche(), method:'GET'}
                     <div class="input-group">
@@ -55,6 +36,13 @@
                     </div>
                     #{/form}
                 </div>
+
+                #{if loggedMember.equals(controllers.Application.getMembre()) }
+                    <a class="btn btn-info btn-addRecette" href="@{Recettes.blank()}"><span class="glyphicon glyphicon-plus"></span> &{'recette.ajouter'}</a>
+                #{/if}
+                #{else}
+                    <a class="btn btn-primary btn-addRecette" href="@{Application.myCookbook()}"><span class="glyphicon glyphicon-list-alt"></span> &{'my.cookbook'}</a>
+                #{/else}
             </div>
 
             #{if flash.error}

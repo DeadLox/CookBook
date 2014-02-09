@@ -17,7 +17,7 @@ GET     /cookbook/                              Application.myCookbook
 GET     /myCookBook/add/{id}                    Application.addToMyCookBook
 
 # Divers
-GET     /changlog                               Application.changelog
+GET     /changelog                              Application.changelog
 GET     /activation/{email}/{code}              Security.activation
 
 # Adminstration
