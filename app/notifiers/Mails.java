@@ -10,6 +10,7 @@ import play.mvc.Mailer;
  */
 public class Mails extends Mailer {
     private static String emailFrom = "dead.lox@hotmail.fr";
+    private static String emailAdmin = "dead.lox@hotmail.fr";
 
     /**
      * Mail d'activation du compte
@@ -21,5 +22,19 @@ public class Mails extends Mailer {
         setSubject(Messages.get("register.email.subject"));
         String activationLink = Security.generateActivationLink(user);
         send(user, activationLink);
+    }
+
+    /**
+     * Mail de contact
+     * @param user
+     * @param email
+     * @param sujet
+     * @param message
+     */
+    public static void contact(Utilisateur user, String email, String sujet, String message){
+        setFrom(email);
+        addRecipient(emailAdmin);
+        setSubject(sujet);
+        send(user, message);
     }
 }

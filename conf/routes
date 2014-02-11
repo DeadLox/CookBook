@@ -20,6 +20,10 @@ GET     /myCookBook/add/{id}                    Application.addToMyCookBook
 GET     /changelog                              Application.changelog
 GET     /activation/{email}/{code}              Security.activation
 
+# Footer
+GET     /contact                                Contact.contact
+POST    /contact/send                           Contact.send
+
 # Adminstration
 GET     /admin                                  Administration.index
 GET     /admin/list                             Administration.generateList

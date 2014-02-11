@@ -140,7 +140,8 @@ h1 a {
 }
 
 /* --- Onglet --- */
-.nav-tabs {
+.nav-tabs li:last-child a {
+    margin-right:0;
 }
 .nav-tabs>li>a {
     font-family: 'playtime', arial;
@@ -249,12 +250,44 @@ div.pagination #paginationOrdre {
 }
 
 /* --- ChangeLog --- */
-.changelog {
+
+/* --- Contact --- */
+.container-border {
     border: 1px solid #ddd;
     border-radius:0 0 5px 5px;
     background-color:white;
-    padding:10px 10px 10px 40px;
+    padding:20px 40px;
     margin-top:-1px;
+}
+.form-button-line {
+    text-align:center;
+}
+
+/* --- Forumualire Recette --- */
+.objectForm .nav-tabs {
+    margin-top:20px;
+}
+.objectForm .nav-tabs>li {
+    width:50%;
+    text-align:center;
+}
+.objectForm .tab-content {
+    padding: 10px;
+    border:1px solid #ddd;
+    border-top:none;
+    margin-bottom:20px;
+    border-radius:0 0 5px 5px;
+}
+
+/* --- Footer --- */
+.footer {
+    margin:20px auto 0;
+    padding:20px 0;
+    text-align:center;
+    border-top:1px solid #ddd;
+}
+.footer ul {
+    list-style-type:none;
 }
 
 /* ================================================ */
@@ -275,6 +308,11 @@ div.pagination #paginationOrdre {
     }
     .objectForm {
         border-top:none;
+    }
+    .objectForm .crudButtons .btn {
+        display:block;
+        width:100%;
+        margin-bottom:10px;
     }
     .listeRecettes li:hover .option {
         display:none;
@@ -314,22 +352,12 @@ div.pagination #paginationOrdre {
         border:1px solid #ddd;
         border-radius:4px;
     }
-}
-
-/* --- Forumualire Recette --- */
-.objectForm .nav-tabs {
-    margin-top:20px;
-}
-.objectForm .nav-tabs>li {
-    width:50%;
-    text-align:center;
-}
-.objectForm .tab-content {
-    padding: 10px;
-    border:1px solid #ddd;
-    border-top:none;
-    margin-bottom:20px;
-    border-radius:0 0 5px 5px;
+    .container-border {
+        padding:20px 10px;
+    }
+    .contact .btn-submit {
+        width:100%;
+    }
 }
 
 /* iPads (portrait and landscape) ----------- */

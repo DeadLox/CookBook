@@ -17,47 +17,12 @@
     </head>
     <body>
         <div class="container">
-
-            #{set loggedMember = controllers.Security.getLoggedMember() /}
-
             #{include 'navbar.html' /}
 
-            #{if !loggedMember.equals(controllers.Application.getMembre()) }
-                <h2 class="cookbook-message">&{'cookbook.of', controllers.Application.getMembre()}</h2>
-            #{/if}
-
-            <div class="menu-bar">
-                <div class="recherche">
-                    #{form @Application.recherche(), method:'GET'}
-                    <div class="input-group">
-                        <input type="text" class="form-control" name="recherche" placeholder="#{if recherche}${recherche}#{/if}#{else}&{'rechercher.texte'}#{/else}">
-                        <span class="input-group-btn">
-                            <button class="btn btn-primary" type="button"><span class="glyphicon glyphicon-search"></span> &{'rechercher.btn'}</button>
-                        </span>
-                    </div>
-                    #{/form}
-                </div>
-
-                #{if loggedMember.equals(controllers.Application.getMembre()) }
-                    <a class="btn btn-info btn-addRecette" href="@{Recettes.blank()}"><span class="glyphicon glyphicon-plus"></span> &{'recette.ajouter'}</a>
-                #{/if}
-                #{else}
-                    <a class="btn btn-primary btn-addRecette" href="@{Application.myCookbook()}"><span class="glyphicon glyphicon-list-alt"></span> &{'my.cookbook'}</a>
-                #{/else}
-            </div>
-
-            #{if flash.error}
-            <p class="alert alert-danger">
-                &{flash.error}
-            </p>
-            #{/if}
-            #{if flash.success}
-            <p class="alert alert-success">
-                &{flash.success}
-            </p>
-            #{/if}
+            #{include 'alert.html' /}
 
             #{doLayout /}
         </div>
+        #{include 'footer.html' /}
     </body>
 </html>

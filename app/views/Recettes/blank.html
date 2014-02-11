@@ -17,7 +17,7 @@
                 <p>&{'recette.adresse.info'}</p>
                 #{crud.form fields:['adresse']}
                     #{crud.custom 'adresse'}
-                        <input id="object_adresse" class=" form-control" type="text" name="object.adresse" value="" size="50">
+                        <input id="object_adresse" class=" form-control" type="text" name="object.adresse" placeholder="http://www.exemple.fr" value="${object.adresse}" size="50">
                     #{/crud.custom}
                 #{/crud.form}
             </div>
@@ -25,14 +25,14 @@
                 <p>&{'recette.description.info'}</p>
                 #{crud.form fields:['description']}
                     #{crud.custom 'description'}
-                        <textarea id="object_description" class="form-control" class="" name="object.description"></textarea>
+                        <textarea id="object_description" class="form-control wysiwyg" name="object.description">${object.description}</textarea>
                     #{/crud.custom}
                 #{/crud.form}
             </div>
         </div>
         <p class="crudButtons">
-            <input class="btn btn-primary" type="submit" name="_save" value="&{'recette.save'}" />
-            <a class="btn btn-default" href="@{Application.all()}">&{'recette.annuler'}</a>
+            <button class="btn btn-primary" type="submit" name="_save"><i class="glyphicon glyphicon-plus"></i> &{'recette.save'}</button>
+            <a class="btn btn-default" href="@{Application.all()}"><i class="glyphicon glyphicon-ban-circle"></i> &{'recette.annuler'}</a>
         </p>
     #{/form}
     </div>

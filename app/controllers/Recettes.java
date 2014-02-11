@@ -45,7 +45,11 @@ public class Recettes extends CRUD {
         Binder.bindBean(params.getRootParamNode(), "object", object);
         validation.valid(object);
         if (validation.hasErrors()) {
-            flash.error(play.i18n.Messages.get("crud.hasErrors"));
+            flash.put("error", getErrorMessage(validation.errorsMap()));
+            render("Recettes/blank.html", type, object);
+        }
+        // Valide les comportements spécifiques
+        if (valideRecette(object)) {
             render("Recettes/blank.html", type, object);
         }
         object.dateDeCreation = new Date();
@@ -53,6 +57,42 @@ public class Recettes extends CRUD {
         object.save();
         flash.success(play.i18n.Messages.get("recette.add", object.titre));
         Application.all();
+    }
+
+    /**
+     * Méthode permettant de valider les comportements spécifiques
+     * @param recette
+     * @return
+     */
+    private static boolean valideRecette(Recette recette){
+        if (recette.adresse.equals("") && recette.description.equals("")) {
+            flash.put("error", Messages.get("recette.adresse.and.descrption.empty"));
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Retourne le message d'erreur à afficher
+     * @param map
+     * @return
+     */
+    private static String getErrorMessage(Map<String, List<Error>> map){
+        String errorMessage = "";
+        int errorNb = 0;
+        for (Map.Entry<String, List<Error>> errorEntry : map.entrySet()) {
+            errorNb++;
+            if (errorNb == map.size()) {
+                break;
+            }
+            Error error = errorEntry.getValue().get(0);
+            String attrName = error.getKey().replace("object.", "");
+            if (errorNb > 1) {
+                errorMessage += "<br/>";
+            }
+            errorMessage += Messages.get(attrName) + " " + error.message();
+        }
+        return errorMessage;
     }
 
     public static void show(long id){
@@ -66,7 +106,11 @@ public class Recettes extends CRUD {
 
         validation.valid(object);
         if (validation.hasErrors()) {
-            flash.error(play.i18n.Messages.get("crud.hasErrors"));
+            flash.put("error", getErrorMessage(validation.errorsMap()));
+            render("Recettes/show.html", type, object);
+        }
+        // Valide les comportements spécifiques
+        if (valideRecette(object)) {
             render("Recettes/show.html", type, object);
         }
         object.dateDeModification = new Date();
@@ -88,7 +132,7 @@ public class Recettes extends CRUD {
                     recette.utilisateurs.remove(user);
                     recette.save();
                 }
-                flash.success(Messages.get("crud.deleted", type.modelName));
+                flash.success(Messages.get("crud.deleted", recette.titre));
             } else {
                 flash.error(Messages.get("crud.recette.delete.non.possede"));
             }

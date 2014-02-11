@@ -1,3 +1,4 @@
+#{set loggedMember = controllers.Security.getLoggedMember() /}
 <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -19,7 +20,7 @@
             #{if loggedMember.role.libelle.equals("Administrateur")}
             <a class="btn btn-warning btn-admin navbar-btn navbar-right" href="@{Administration.index()}"><span class="glyphicon glyphicon-lock"></span> &{'application.administration.user'}</a>
             #{/if}
-            <p class="userName navbar-text navbar-right">&{'application.login.bienvenue'} <strong>${loggedMember.email}</strong></p>
+            <p class="userName navbar-text navbar-right">&{'application.login.bienvenue'} <strong>${loggedMember}</strong></p>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>

@@ -1,10 +1,6 @@
 package models;
 
-import controllers.Secure;
-import controllers.Security;
-import play.data.validation.MaxSize;
-import play.data.validation.Required;
-import play.data.validation.Unique;
+import play.data.validation.*;
 import play.db.jpa.Model;
 
 import javax.persistence.*;
@@ -20,7 +16,10 @@ import java.util.*;
 @Entity
 public class Recette extends Model implements Comparable<Recette> {
     @Required
+    @MinSize(3)
     public String titre;
+    @URL
+    @MaxSize(2048)
     public String adresse;
     @MaxSize(10000)
     public String description;

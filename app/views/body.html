@@ -1,6 +1,8 @@
 #{extends 'main.html' /}
 #{set user = controllers.Application.getMembre() /}
 
+#{include 'options.html' /}
+
 <ul class="nav nav-tabs nav-tabs-recettes">
     <li #{if request.path.contains('membres')}class="active"#{/if}><a href="@{Application.showMembres()}">&{'membres'} <span class="label label-info">${models.Utilisateur.count()-1}</span></a></li>
     <li #{if !request.path.contains('lettre') && !request.path.contains('recherche') && !request.path.contains('membres')}class="active"#{/if}><a href="@{Application.all()}">&{'tout'} <span class="label label-info">${user.recettes.size()}</span></a></li>

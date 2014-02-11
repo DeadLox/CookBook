@@ -6,17 +6,8 @@
     <hr/>
 
     #{form @Security.register()}
-        #{if flash.error}
-        <p class="alert alert-danger">
-            &{flash.error}
-        </p>
-        #{/if}
-        #{if flash.success}
-        <p class="alert alert-success">
-            &{flash.success}
-        </p>
-        #{/if}
 
+        #{include 'alert.html' /}
 
         <p id="pseudo-field">
             <label for="pseudo">&{'pseudo'}</label>
@@ -32,8 +23,8 @@
         </p>
         <hr/>
         <p id="signin-field">
-            <a class="btn btn-xs btn-info" href="@{Secure.login()}">&{'signin'}</a>
-            <input class="btn btn-primary" type="submit" id="signin" value="&{'register'}" />
+            <a class="btn btn-xs btn-info" href="@{Secure.login()}"><i class="glyphicon glyphicon-log-in"></i> &{'signin'}</a>
+            <button class="btn btn-primary" type="submit" id="signin"><i class="glyphicon glyphicon-user"></i> &{'register'}</button>
         </p>
     #{/form}
 </div>

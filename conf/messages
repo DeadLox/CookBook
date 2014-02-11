@@ -1,6 +1,6 @@
 application.titre       = CookBook
 application.version     = v1.6
-application.changelog   = Changelog:
+application.changelog   = Historique des changements:
 
 application.administration.user = Administration
 
@@ -37,6 +37,7 @@ recette.cookbook.already.exist  = Cette recette est déjà dans votre CookBook
 membre.show.cookbook = Voir son CookBook
 
 # Validation
+recette.adresse.and.descrption.empty    = Une adresse, une description ou les deux doit être renseignés.
 recette.supprimer.success   = La recette '%1$s' a été supprimée.
 recette.add                 = La recette '%1$s' a été ajoutée.
 recette.edit                = La recette '%1$s' a été modifiée.
@@ -103,6 +104,23 @@ secure.signin               = Se connecter
 secure.error                = Oops, email ou mot de passe incorrecte
 secure.logout               = Vous avez été déconnecté.
 
+# Contact
+contact.intro               = N'hésitez pas à nous contacter si vous avez des problèmes, questions, idées ou remarques.
+contact.email               = Votre adresse email
+contact.sujet               = Le sujet de votre message
+contact.message             = Votre message
+contact.submit              = Envoyer
+contact.email.empty         = Veuillez renseigner une adresse email
+contact.email.not.valid     = Veuillez renseigner une adresse email valide
+contact.sujet.empty         = Veuillez renseigner un sujet
+contact.sujet.too.small     = Veuillez renseigner un sujet de plus de %1$s caractères
+contact.message.empty       = Veuillez renseigner un message
+contact.message.too.small   = Veuillez renseigner un message de plus de %1$s caractères
+contact.email.success       = Votre message a bien été envoyé. Un administrateur vous répondra dans les plus bref délais.
+
+# Footer
+application.contact         = Nous contacter
+
 # BO
 application.administration  = Administration
 role                        = Rôle
@@ -130,6 +148,11 @@ crud.add                = Ajouter %1$s
 crud.deleted            = La recette '%1$s' a été supprimé de votre CookBook
 crud.recette.delete.non.possede = Vous ne possèdez pas supprimer cette recette
 crud.recette.not.exist          = Cette recette n'existe pas
+
+# Validation
+validation.required     = est obligatoire.
+validation.minSize      = ne peut pas être inférieur à %2$d caractères.
+validation.url          = n'est pas une url valide. (Commence par 'http://')
 
 # Erreurs
 error.redirect.recette  = Une erreur est survenue lors de la redirection vers la recette
